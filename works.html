@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>実績・活動 ｜ Fukumaru_40</title>
+  <meta name="description" content="チャットボット構築・BIダッシュボード・AI活用推進の実績まとめ。英会話スクールFAQボット、入会データ集計ダッシュボード、Claude Code活用、X自動投稿システムなど。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Fukumaru_40</a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="works.html">Works</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#flow">Flow</a>
+        <a href="index.html#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-grid">
+          <div class="page-hero-text">
+            <nav class="breadcrumb" aria-label="パンくずリスト">
+              <a href="index.html">Home</a>
+              <span class="breadcrumb-sep">/</span>
+              <span>Works</span>
+            </nav>
+            <p class="section-eyebrow">Works</p>
+            <h1 class="page-hero-title">これまでの<br />実績・活動</h1>
+            <p class="page-hero-lead">
+              チャットボット構築・ExcelデータのBI化／自動化のサンプルと、
+              これまでの業務経験・AI活用推進活動をご紹介します。
+            </p>
+            <div class="page-hero-actions">
+              <a href="#cases" class="btn btn-primary">事例を見る</a>
+              <a href="services.html" class="btn btn-ghost">提供サービス</a>
+              <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
+            </div>
+          </div>
+          <div class="page-hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="230" cy="200" r="170" fill="#F2EADB" opacity="0.7"/>
+              <circle cx="380" cy="100" r="50" fill="#ECE0C7" opacity="0.6"/>
+              <circle cx="80" cy="300" r="55" fill="#ECE0C7" opacity="0.5"/>
+
+              <!-- 賞状/トロフィー的なメダル -->
+              <g class="illust-float">
+                <circle cx="230" cy="180" r="60" fill="#7A5230"/>
+                <circle cx="230" cy="180" r="48" fill="#B8895A"/>
+                <circle cx="230" cy="180" r="36" fill="#FAF6EF" stroke="#7A5230" stroke-width="2"/>
+                <text x="230" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#7A5230">★</text>
+                <!-- リボン -->
+                <path d="M195 235 L210 280 L230 260 L250 280 L265 235 Z" fill="#7A5230" opacity="0.85"/>
+              </g>
+
+              <!-- 周辺のミニカード（実績タグ） -->
+              <g>
+                <rect x="60" y="80" width="110" height="40" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <rect x="72" y="90" width="50" height="4" rx="2" fill="#B8895A"/>
+                <rect x="72" y="100" width="70" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="72" y="108" width="55" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="290" y="60" width="110" height="40" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <rect x="302" y="70" width="40" height="4" rx="2" fill="#B8895A"/>
+                <rect x="302" y="80" width="80" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="302" y="88" width="60" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="40" y="230" width="100" height="40" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <rect x="52" y="240" width="40" height="4" rx="2" fill="#B8895A"/>
+                <rect x="52" y="250" width="60" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="52" y="258" width="50" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="310" y="240" width="110" height="40" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <rect x="322" y="250" width="50" height="4" rx="2" fill="#B8895A"/>
+                <rect x="322" y="260" width="70" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="322" y="268" width="60" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+
+              <!-- きらめき -->
+              <g class="illust-sparkle" style="transform-origin: 200px 100px;">
+                <path d="M200 90 L202.5 98 L210 100 L202.5 102 L200 110 L197.5 102 L190 100 L197.5 98 Z" fill="#B8895A"/>
+              </g>
+              <g class="illust-sparkle illust-sparkle-2" style="transform-origin: 280px 320px;">
+                <path d="M280 312 L281.5 318 L287 320 L281.5 322 L280 328 L278.5 322 L273 320 L278.5 318 Z" fill="#7A5230"/>
+              </g>
+              <g class="illust-sparkle illust-sparkle-3" style="transform-origin: 410px 200px;">
+                <path d="M410 192 L411.5 198 L417 200 L411.5 202 L410 208 L408.5 202 L403 200 L408.5 198 Z" fill="#B8895A"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- クイックナビ（目次） -->
+    <nav class="quick-nav" aria-label="ページ内ナビゲーション">
+      <div class="container">
+        <p class="quick-nav-title">Cases Quick Access</p>
+        <div class="quick-nav-grid cols-6">
+          <a href="#case-01" class="quick-nav-card">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21 Q4 14 12 14 Q20 14 20 21"/>
+              </svg>
+            </div>
+            <span class="quick-nav-num">CASE 01</span>
+            <span class="quick-nav-label">AI推進・社内活動</span>
+          </a>
+          <a href="#case-02" class="quick-nav-card">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16v10H10l-4 4v-4H4z"/>
+              </svg>
+            </div>
+            <span class="quick-nav-num">CASE 02</span>
+            <span class="quick-nav-label">英会話FAQボット</span>
+          </a>
+          <a href="#case-03" class="quick-nav-card">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M7 16V11M12 16V8M17 16V13"/>
+              </svg>
+            </div>
+            <span class="quick-nav-num">CASE 03</span>
+            <span class="quick-nav-label">BIダッシュボード</span>
+          </a>
+          <a href="#case-04" class="quick-nav-card">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 3 H15 L19 7 V21 H5 Z"/>
+                <path d="M15 3 V7 H19"/>
+              </svg>
+            </div>
+            <span class="quick-nav-num">CASE 04</span>
+            <span class="quick-nav-label">業務設計・FAQ</span>
+          </a>
+          <a href="#case-05" class="quick-nav-card">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                <path d="M8 10 L5 12 L8 14 M16 10 L19 12 L16 14"/>
+              </svg>
+            </div>
+            <span class="quick-nav-num">CASE 05</span>
+            <span class="quick-nav-label">Claude Code活用</span>
+          </a>
+          <a href="#case-06" class="quick-nav-card">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4 L20 20 M20 4 L4 20"/>
+              </svg>
+            </div>
+            <span class="quick-nav-num">CASE 06</span>
+            <span class="quick-nav-label">X自動投稿ボット</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cases -->
+    <section class="section" id="cases">
+      <div class="container" style="max-width: 920px;">
+
+        <!-- Case 1: AI活用推進・社内エバンジェリスト -->
+        <article class="case-block" id="case-01">
+          <div class="case-banner" aria-hidden="true">
+            <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="180" cy="160" rx="140" ry="6" fill="#ECE0C7" opacity="0.5"/>
+              <!-- 真ん中：AIエバンジェリスト本人（簡略） -->
+              <circle cx="180" cy="60" r="22" fill="#7A5230"/>
+              <path d="M155 110 Q155 90 180 90 Q205 90 205 110 L205 140 L155 140 Z" fill="#B8895A"/>
+              <!-- 周辺：チームメンバー -->
+              <circle cx="80" cy="80" r="14" fill="#B8895A"/>
+              <path d="M65 115 Q65 102 80 102 Q95 102 95 115 L95 140 L65 140 Z" fill="#7A5230" opacity="0.85"/>
+              <circle cx="280" cy="80" r="14" fill="#B8895A"/>
+              <path d="M265 115 Q265 102 280 102 Q295 102 295 115 L295 140 L265 140 Z" fill="#7A5230" opacity="0.85"/>
+              <!-- AIラベル -->
+              <ellipse cx="180" cy="35" rx="38" ry="18" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+              <text x="180" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#7A5230">AI</text>
+              <!-- 接続ライン -->
+              <path d="M100 90 Q140 70 158 65" stroke="#B8895A" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+              <path d="M260 90 Q220 70 202 65" stroke="#B8895A" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+              <!-- きらめき -->
+              <path d="M40 30 L42 36 L48 38 L42 40 L40 46 L38 40 L32 38 L38 36 Z" fill="#B8895A"/>
+              <path d="M320 30 L322 36 L328 38 L322 40 L320 46 L318 40 L312 38 L318 36 Z" fill="#B8895A"/>
+            </svg>
+          </div>
+          <div class="case-head">
+            <div class="case-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="16" cy="10" r="6"/>
+                <path d="M4 28 Q4 18 16 18 Q28 18 28 28"/>
+                <path d="M22 6 L24 10 L28 11 L24 12 L22 16 L20 12 L16 11 L20 10 Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="case-meta">
+              <span class="case-tag">In-house Activity</span>
+              <h3 class="case-title">AI活用推進・社内エバンジェリスト活動</h3>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h4>概要</h4>
+            <p>現在の職場で<strong>社内AIエバンジェリスト</strong>を担当。AI活用ノウハウの収集・整理から全社への普及まで一貫して推進しています。</p>
+          </div>
+          <div class="menu-section">
+            <h4>主な活動内容</h4>
+            <ul>
+              <li><strong>生成AIパスポート取得</strong>（2024年10月）</li>
+              <li>AIツール（ChatGPT・Gemini・<strong>Claude</strong>等）の社内導入・活用方法の整備</li>
+              <li><strong>Claude Code</strong>を活用したドキュメント作成・プロンプト設計の効率化</li>
+              <li>社内向けAI活用ガイドラインの作成</li>
+              <li>社員へのAIツール活用レクチャー・勉強会の実施</li>
+              <li>AI活用に関するナレッジの収集・ドキュメント化</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>ポイント</h4>
+            <ul>
+              <li>「AIを使える人」だけが使うのではなく、現場スタッフが日常業務で使える状態を目指した普及設計</li>
+              <li>管理部目線の「組織として運用できるか」と現場目線の「実際に使われるか」の両方を考慮</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Case 2: 英会話教室FAQチャットボット -->
+        <article class="case-block" id="case-02">
+          <div class="case-banner" aria-hidden="true">
+            <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="180" cy="160" rx="140" ry="6" fill="#ECE0C7" opacity="0.5"/>
+              <!-- スマホ風 -->
+              <rect x="120" y="20" width="120" height="140" rx="14" fill="#7A5230"/>
+              <rect x="128" y="32" width="104" height="116" rx="3" fill="#FAF6EF"/>
+              <!-- チャット画面 -->
+              <rect x="135" y="42" width="60" height="22" rx="11" fill="#B8895A"/>
+              <text x="165" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#FAF6EF">体験申込み？</text>
+              <rect x="165" y="72" width="60" height="22" rx="11" fill="#F2EADB"/>
+              <text x="195" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#7A5230">ご案内します</text>
+              <rect x="135" y="102" width="50" height="22" rx="11" fill="#B8895A"/>
+              <text x="160" y="116" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#FAF6EF">料金は？</text>
+              <rect x="170" y="132" width="55" height="14" rx="7" fill="#F2EADB"/>
+              <!-- 周辺の吹き出し -->
+              <ellipse cx="60" cy="60" rx="35" ry="22" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+              <text x="60" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#7A5230">FAQ</text>
+              <ellipse cx="300" cy="120" rx="38" ry="22" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+              <text x="300" y="125" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#7A5230">24h対応</text>
+              <!-- きらめき -->
+              <path d="M40 130 L42 136 L48 138 L42 140 L40 146 L38 140 L32 138 L38 136 Z" fill="#B8895A"/>
+              <path d="M320 30 L322 36 L328 38 L322 40 L320 46 L318 40 L312 38 L318 36 Z" fill="#B8895A"/>
+            </svg>
+          </div>
+          <div class="case-head">
+            <div class="case-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 8 Q5 4 9 4 L23 4 Q27 4 27 8 L27 18 Q27 22 23 22 L14 22 L8 27 L9.5 22 Q5 22 5 18 Z"/>
+                <circle cx="11" cy="13" r="1.2" fill="currentColor"/>
+                <circle cx="16" cy="13" r="1.2" fill="currentColor"/>
+                <circle cx="21" cy="13" r="1.2" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="case-meta">
+              <span class="case-tag">Chatbot Sample · Education</span>
+              <h3 class="case-title">英会話教室のFAQチャットボット</h3>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h4>解決した課題</h4>
+            <ul>
+              <li>料金・コース・体験などの定型問い合わせが多い</li>
+              <li>FAQが見つけづらく、訪問者が途中で離脱してしまう</li>
+              <li>営業時間外に質問対応ができない</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>主な機能</h4>
+            <ul>
+              <li><strong>料金・コース案内の自動応答</strong>：よくある質問（料金体系／コース違い）を即時回答</li>
+              <li><strong>体験レッスンの案内・導線設計</strong>：申し込みに必要な情報や流れを分かりやすく提示</li>
+              <li><strong>アクセス・営業時間などの基本情報対応</strong>：迷いやすい情報をチャットで最短提示</li>
+              <li><strong>質問を迷わせない会話設計</strong>：1問ずつ進行／選択肢提示／例外時の案内</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>設計のポイント</h4>
+            <ul>
+              <li><strong>24時間対応で機会損失をゼロに</strong>：営業時間外でも体験レッスン案内・基本情報を自動提供</li>
+              <li><strong>体験申込みへの自然な誘導</strong>：質問の流れの中で、申込みリンクへスムーズに案内</li>
+              <li><strong>FAQ整理から実装まで一気通貫</strong>：重複・バラつきを整理してから設計し、迷わない導線を実現</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>使用技術</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">Dify</span>
+              <span class="tech-tag">GPT系</span>
+              <span class="tech-tag">Gemini</span>
+              <span class="tech-tag">Anthropic Claude</span>
+            </div>
+          </div>
+          <div class="menu-section">
+            <a href="https://udify.app/chat/nIihJhU3dZTh8vK7" class="btn btn-primary" target="_blank" rel="noopener">デモを試す →</a>
+          </div>
+        </article>
+
+        <!-- Case 3: BIダッシュボード -->
+        <article class="case-block" id="case-03">
+          <div class="case-banner" aria-hidden="true">
+            <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="180" cy="160" rx="140" ry="6" fill="#ECE0C7" opacity="0.5"/>
+              <!-- ダッシュボード -->
+              <rect x="40" y="20" width="280" height="130" rx="8" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+              <rect x="40" y="20" width="280" height="20" rx="8" fill="#B8895A"/>
+              <rect x="40" y="32" width="280" height="8" fill="#B8895A"/>
+              <circle cx="52" cy="30" r="2.5" fill="#FAF6EF"/>
+              <circle cx="62" cy="30" r="2.5" fill="#FAF6EF"/>
+              <circle cx="72" cy="30" r="2.5" fill="#FAF6EF"/>
+              <!-- KPIカード -->
+              <rect x="55" y="55" width="70" height="32" rx="4" fill="#F2EADB" stroke="#E8DCC4" stroke-width="1"/>
+              <rect x="62" y="62" width="32" height="4" rx="2" fill="#B8895A"/>
+              <rect x="62" y="72" width="50" height="9" rx="2" fill="#7A5230"/>
+              <rect x="135" y="55" width="70" height="32" rx="4" fill="#F2EADB" stroke="#E8DCC4" stroke-width="1"/>
+              <rect x="142" y="62" width="40" height="4" rx="2" fill="#B8895A"/>
+              <rect x="142" y="72" width="40" height="9" rx="2" fill="#7A5230"/>
+              <rect x="215" y="55" width="70" height="32" rx="4" fill="#F2EADB" stroke="#E8DCC4" stroke-width="1"/>
+              <rect x="222" y="62" width="28" height="4" rx="2" fill="#B8895A"/>
+              <rect x="222" y="72" width="55" height="9" rx="2" fill="#7A5230"/>
+              <!-- 棒グラフ -->
+              <rect x="60" y="120" width="14" height="20" rx="2" fill="#7A5230"/>
+              <rect x="80" y="105" width="14" height="35" rx="2" fill="#B8895A"/>
+              <rect x="100" y="95" width="14" height="45" rx="2" fill="#7A5230"/>
+              <rect x="120" y="110" width="14" height="30" rx="2" fill="#B8895A"/>
+              <line x1="55" y1="140" x2="140" y2="140" stroke="#E8DCC4" stroke-width="1"/>
+              <!-- 折れ線 -->
+              <polyline points="170,135 195,115 220,125 245,100 270,110 295,90"
+                        stroke="#7A5230" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="170" cy="135" r="3" fill="#B8895A"/>
+              <circle cx="195" cy="115" r="3" fill="#B8895A"/>
+              <circle cx="220" cy="125" r="3" fill="#B8895A"/>
+              <circle cx="245" cy="100" r="3" fill="#B8895A"/>
+              <circle cx="270" cy="110" r="3" fill="#B8895A"/>
+              <circle cx="295" cy="90" r="3" fill="#B8895A"/>
+              <!-- きらめき -->
+              <path d="M340 50 L342 56 L348 58 L342 60 L340 66 L338 60 L332 58 L338 56 Z" fill="#B8895A"/>
+            </svg>
+          </div>
+          <div class="case-head">
+            <div class="case-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="6" width="24" height="20" rx="2"/>
+                <path d="M9 22V15M16 22V11M23 22V18"/>
+              </svg>
+            </div>
+            <div class="case-meta">
+              <span class="case-tag">BI Sample · Education</span>
+              <h3 class="case-title">入会・コース別データの集計ダッシュボード</h3>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h4>解決した課題</h4>
+            <ul>
+              <li>Excelデータが蓄積されているが、グラフ化・集計に毎回時間がかかる</li>
+              <li>月次レポートを手作業で作成しており、ミスや工数が発生している</li>
+              <li>データを見やすい形で共有・確認できる仕組みがない</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>主な機能</h4>
+            <ul>
+              <li><strong>入会者数・コース別データの自動集計</strong>：Excelデータを読み込み、月別・コース別に自動でグラフ化</li>
+              <li><strong>BIダッシュボードの自動更新</strong>：データ更新のたびにGASが自動実行し、レポートを最新状態に保つ</li>
+              <li><strong>共有・確認のしやすさ</strong>：Googleスプレッドシート上で完結し、URLを共有するだけでチームで閲覧可能</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>設計のポイント</h4>
+            <ul>
+              <li><strong>GAS × AIで構築時間を大幅短縮</strong>：2時間で基本ダッシュボードを構築</li>
+              <li><strong>Excelデータをそのまま活用</strong>：既存データを大きく加工せず移行・活用可能</li>
+              <li><strong>現場が使い続けられる設計</strong>：更新作業を自動化し、担当者の工数をゼロに</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>使用技術</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">GAS (Google Apps Script)</span>
+              <span class="tech-tag">Claude</span>
+              <span class="tech-tag">ChatGPT</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 4: 業務設計・マニュアル化 -->
+        <article class="case-block" id="case-04">
+          <div class="case-banner" aria-hidden="true">
+            <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="180" cy="160" rx="140" ry="6" fill="#ECE0C7" opacity="0.5"/>
+              <!-- 3つのドキュメント -->
+              <g>
+                <rect x="50" y="40" width="80" height="100" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+                <path d="M115 40 V55 H130" stroke="#B8895A" stroke-width="2" fill="none"/>
+                <rect x="60" y="60" width="50" height="4" rx="2" fill="#B8895A"/>
+                <rect x="60" y="72" width="60" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="60" y="80" width="55" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="60" y="88" width="50" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="60" y="100" width="58" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="60" y="108" width="48" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="60" y="116" width="55" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="60" y="124" width="40" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="140" y="30" width="80" height="110" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+                <path d="M205 30 V45 H220" stroke="#B8895A" stroke-width="2" fill="none"/>
+                <rect x="150" y="50" width="55" height="4" rx="2" fill="#B8895A"/>
+                <path d="M155 70 L161 76 L172 64" stroke="#7A5230" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="178" y="68" width="30" height="3" rx="1.5" fill="#E8DCC4"/>
+                <path d="M155 90 L161 96 L172 84" stroke="#7A5230" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="178" y="88" width="34" height="3" rx="1.5" fill="#E8DCC4"/>
+                <path d="M155 110 L161 116 L172 104" stroke="#7A5230" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="178" y="108" width="28" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="230" y="40" width="80" height="100" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+                <path d="M295 40 V55 H310" stroke="#B8895A" stroke-width="2" fill="none"/>
+                <rect x="240" y="60" width="40" height="4" rx="2" fill="#B8895A"/>
+                <circle cx="248" cy="80" r="3" fill="#B8895A"/>
+                <rect x="258" y="78" width="40" height="4" rx="2" fill="#E8DCC4"/>
+                <circle cx="248" cy="92" r="3" fill="#B8895A"/>
+                <rect x="258" y="90" width="36" height="4" rx="2" fill="#E8DCC4"/>
+                <circle cx="248" cy="104" r="3" fill="#B8895A"/>
+                <rect x="258" y="102" width="42" height="4" rx="2" fill="#E8DCC4"/>
+                <circle cx="248" cy="116" r="3" fill="#B8895A"/>
+                <rect x="258" y="114" width="38" height="4" rx="2" fill="#E8DCC4"/>
+              </g>
+            </svg>
+          </div>
+          <div class="case-head">
+            <div class="case-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 4 H21 L26 9 V28 H7 Z"/>
+                <path d="M21 4 V9 H26"/>
+                <path d="M11 16 L14 19 L21 12"/>
+              </svg>
+            </div>
+            <div class="case-meta">
+              <span class="case-tag">Operation Design · 8 Years</span>
+              <h3 class="case-title">業務設計・マニュアル化・FAQ整備</h3>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h4>概要</h4>
+            <p>教育業界（英会話）での<strong>管理部8年</strong>の経験を通じて、現場の業務を「誰でも回る仕組み」に落とし込む設計を担当してきました。</p>
+          </div>
+          <div class="menu-section">
+            <h4>主な経験</h4>
+            <ul>
+              <li><strong>FAQ・マニュアルの整備</strong>：問い合わせが多い業務を洗い出し、FAQ化・マニュアル化</li>
+              <li><strong>業務フローの設計・改善</strong>：現場スタッフが迷わず動ける手順書・フローの作成</li>
+              <li><strong>新人教育・オンボーディング設計</strong>：入社後に即戦力になれる導線の整備</li>
+              <li><strong>問い合わせ対応の効率化</strong>：定型質問を仕組みで解決し、担当者の工数を削減</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>この経験がAI活用に活きる理由</h4>
+            <p>「何をFAQ化すべきか」「どう会話設計するか」は、業務を深く知らないと正確に設計できません。
+            飲食業界9年・英会話業界現場5年＋管理部8年の経験があるため、
+            <strong>現場で本当に使われるか</strong>と<strong>組織として運用できるか</strong>の両方の視点から設計できます。</p>
+          </div>
+        </article>
+
+        <!-- Case 5: Claude Code -->
+        <article class="case-block" id="case-05">
+          <div class="case-banner" aria-hidden="true">
+            <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="180" cy="160" rx="140" ry="6" fill="#ECE0C7" opacity="0.5"/>
+              <!-- ターミナル -->
+              <rect x="60" y="30" width="240" height="120" rx="8" fill="#7A5230"/>
+              <rect x="60" y="30" width="240" height="22" rx="8" fill="#5C3D24"/>
+              <rect x="60" y="42" width="240" height="10" fill="#5C3D24"/>
+              <circle cx="74" cy="41" r="3.5" fill="#FAF6EF" opacity="0.3"/>
+              <circle cx="86" cy="41" r="3.5" fill="#FAF6EF" opacity="0.3"/>
+              <circle cx="98" cy="41" r="3.5" fill="#FAF6EF" opacity="0.3"/>
+              <text x="170" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#FAF6EF" opacity="0.7">claude code</text>
+              <!-- コード行 -->
+              <text x="76" y="74" font-family="Inter, sans-serif" font-size="11" fill="#B8895A">$</text>
+              <rect x="92" y="65" width="160" height="6" rx="2" fill="#FAF6EF" opacity="0.55"/>
+              <text x="76" y="92" font-family="Inter, sans-serif" font-size="11" fill="#B8895A">→</text>
+              <rect x="92" y="83" width="180" height="6" rx="2" fill="#FAF6EF" opacity="0.7"/>
+              <rect x="92" y="93" width="120" height="6" rx="2" fill="#FAF6EF" opacity="0.4"/>
+              <text x="76" y="120" font-family="Inter, sans-serif" font-size="11" fill="#B8895A">$</text>
+              <rect x="92" y="111" width="140" height="6" rx="2" fill="#FAF6EF" opacity="0.55"/>
+              <text x="76" y="138" font-family="Inter, sans-serif" font-size="11" fill="#B8895A">✓</text>
+              <rect x="92" y="129" width="100" height="6" rx="2" fill="#B8895A"/>
+              <!-- きらめき -->
+              <path d="M40 60 L42 66 L48 68 L42 70 L40 76 L38 70 L32 68 L38 66 Z" fill="#B8895A"/>
+              <path d="M320 100 L322 106 L328 108 L322 110 L320 116 L318 110 L312 108 L318 106 Z" fill="#B8895A"/>
+            </svg>
+          </div>
+          <div class="case-head">
+            <div class="case-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="6" width="24" height="20" rx="2"/>
+                <path d="M10 13 L7 16 L10 19"/>
+                <path d="M22 13 L25 16 L22 19"/>
+                <path d="M18 11 L14 21"/>
+              </svg>
+            </div>
+            <div class="case-meta">
+              <span class="case-tag">AI Tool Adoption</span>
+              <h3 class="case-title">Claude Codeを活用した業務効率化</h3>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h4>概要</h4>
+            <p>AnthropicのAI開発支援ツール<strong>Claude Code</strong>を活用し、チャットボット構築・ドキュメント整備・プロンプト設計などの業務を大幅に効率化しています。</p>
+          </div>
+          <div class="menu-section">
+            <h4>主な活用シーン</h4>
+            <ul>
+              <li><strong>① プロンプト設計・最適化</strong>：システムプロンプトの複数パターンを素早く生成・比較。チャットボットの精度向上に直結。</li>
+              <li><strong>② FAQ原稿の整理・リライト</strong>：大量のFAQテキストの重複削除・表現統一・カテゴリ整理を短時間で処理。</li>
+              <li><strong>③ ドキュメント・マニュアル作成</strong>：業務フロー・運用ルール・提案資料などの構造化文書を高速生成。</li>
+              <li><strong>④ Difyのナレッジベース整備</strong>：取り込む原稿の形式整理・表現最適化をClaude Codeで効率化。</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>効果・ポイント</h4>
+            <ul>
+              <li>従来数時間かかっていたドキュメント整備・プロンプト作成が大幅に短縮</li>
+              <li>「言いたいことは分かるが文章にできない」業務課題をAIで言語化・整理</li>
+              <li><strong>GPT系・Gemini・Claudeを用途別に使い分け</strong>、最適な品質を実現</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Case 6: X自動投稿ボット -->
+        <article class="case-block" id="case-06">
+          <div class="case-banner" aria-hidden="true">
+            <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="180" cy="160" rx="140" ry="6" fill="#ECE0C7" opacity="0.5"/>
+              <!-- AI/Claude → 投稿カード -->
+              <circle cx="80" cy="80" r="32" fill="#7A5230"/>
+              <text x="80" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="800" fill="#FAF6EF">AI</text>
+              <!-- 矢印 -->
+              <path d="M120 80 L155 80" stroke="#B8895A" stroke-width="2.5" stroke-dasharray="4,4"/>
+              <path d="M150 74 L160 80 L150 86" stroke="#B8895A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- 投稿カード3枚 -->
+              <g>
+                <rect x="170" y="30" width="160" height="38" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <circle cx="184" cy="48" r="8" fill="#B8895A"/>
+                <rect x="200" y="38" width="60" height="4" rx="2" fill="#7A5230"/>
+                <rect x="200" y="48" width="120" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="200" y="56" width="100" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="170" y="78" width="160" height="38" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <circle cx="184" cy="96" r="8" fill="#B8895A"/>
+                <rect x="200" y="86" width="60" height="4" rx="2" fill="#7A5230"/>
+                <rect x="200" y="96" width="115" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="200" y="104" width="90" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <g>
+                <rect x="170" y="126" width="160" height="38" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="1.5"/>
+                <circle cx="184" cy="144" r="8" fill="#B8895A"/>
+                <rect x="200" y="134" width="60" height="4" rx="2" fill="#7A5230"/>
+                <rect x="200" y="144" width="120" height="3" rx="1.5" fill="#E8DCC4"/>
+                <rect x="200" y="152" width="95" height="3" rx="1.5" fill="#E8DCC4"/>
+              </g>
+              <!-- 「3posts/day」ラベル -->
+              <rect x="40" y="125" width="80" height="22" rx="11" fill="#B8895A"/>
+              <text x="80" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#FAF6EF">3 posts/day</text>
+              <!-- きらめき -->
+              <path d="M40 25 L42 31 L48 33 L42 35 L40 41 L38 35 L32 33 L38 31 Z" fill="#B8895A"/>
+            </svg>
+          </div>
+          <div class="case-head">
+            <div class="case-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 5 L15 15 L5 25 M5 5 L25 25 M27 5 L17 15"/>
+              </svg>
+            </div>
+            <div class="case-meta">
+              <span class="case-tag">Side Project · Automation</span>
+              <h3 class="case-title">X（Twitter）自動投稿ボットの構築</h3>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h4>概要</h4>
+            <p>副業・受託案件（チャットボット／LP／BI）の集客を目的に、<strong>X（Twitter）への自動投稿システム</strong>を構築・運用中。
+            Claude APIで投稿文を自動生成し、GitHub Actionsで1日3回スケジュール投稿する仕組みを実装しました。</p>
+          </div>
+          <div class="menu-section">
+            <h4>使用技術</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">Python (tweepy)</span>
+              <span class="tech-tag">Claude API</span>
+              <span class="tech-tag">GitHub Actions</span>
+              <span class="tech-tag">Cursor</span>
+              <span class="tech-tag">Claude Code</span>
+            </div>
+          </div>
+          <div class="menu-section">
+            <h4>主な機能</h4>
+            <ul>
+              <li>Claude APIが業種・強み・実績をもとに毎回異なる投稿文を生成</li>
+              <li><code>work_episodes.md</code> に実体験を追記するだけで投稿の質が向上する設計</li>
+              <li>GitHub Secrets でAPIキーを安全に管理（<code>.env</code> をGitに含めない構成）</li>
+              <li><code>--check</code> オプションで認証確認のみ実行できるテストモード対応</li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <h4>ポイント</h4>
+            <ul>
+              <li><strong>「書く」作業をゼロに</strong>：毎日の投稿文作成をAIが代替し、集客活動を自動化</li>
+              <li><strong>Cursorで2時間以内に構築</strong>：AIコーディング支援ツールで高速に実装</li>
+              <li><strong>運用コストほぼゼロ</strong>：GitHub Actions の無料枠で継続稼働</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- インラインCTA -->
+        <div class="inline-cta">
+          <p class="inline-cta-text"><strong>サービスの詳細</strong>もご確認いただけます。料金・進め方・FAQ など。</p>
+          <a href="services.html" class="btn btn-primary">提供サービスを見る →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ページ間ナビゲーション -->
+    <section class="page-nav-section">
+      <div class="container">
+        <p class="quick-nav-title" style="margin-bottom: 32px;">Next Pages</p>
+        <div class="page-nav-grid">
+          <a href="services.html" class="page-nav-card">
+            <div class="page-nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <path d="M8 9h8M8 13h6M8 17h4"/>
+              </svg>
+            </div>
+            <div class="page-nav-meta">
+              <span class="page-nav-eyebrow">Services</span>
+              <p class="page-nav-label">提供サービス・料金を見る</p>
+            </div>
+          </a>
+          <a href="index.html" class="page-nav-card">
+            <div class="page-nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12 L12 3 L21 12"/>
+                <path d="M5 10v10h14V10"/>
+              </svg>
+            </div>
+            <div class="page-nav-meta">
+              <span class="page-nav-eyebrow">Home</span>
+              <p class="page-nav-label">トップページに戻る</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <div class="contact-illust" aria-hidden="true">
+          <svg viewBox="0 0 120 80" width="120" height="80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 50 Q20 30 40 30 L80 30 Q100 30 100 50 L100 65 Q100 78 85 78 L65 78 L55 90 L60 78 Q20 78 20 65 Z"
+                  fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
+            <circle cx="48" cy="55" r="3" fill="#B8895A"/>
+            <circle cx="60" cy="55" r="3" fill="#B8895A"/>
+            <circle cx="72" cy="55" r="3" fill="#B8895A"/>
+            <path d="M105 18 L107 24 L113 26 L107 28 L105 34 L103 28 L97 26 L103 24 Z" fill="#B8895A"/>
+            <path d="M15 12 L16.5 16 L21 18 L16.5 20 L15 24 L13.5 20 L9 18 L13.5 16 Z" fill="#7A5230"/>
+          </svg>
+        </div>
+        <p class="section-eyebrow">Contact</p>
+        <h2 class="contact-title">あなたの課題も解決できるかもしれません</h2>
+        <p class="contact-lead">
+          チャットボット構築（外向け・社内向け）だけでなく、<strong>AI活用支援・業務代行</strong>など、<br />
+          用途に合わせて設計・対応が可能です。まずはお気軽にご相談ください。
+        </p>
+        <div class="contact-cta">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" class="btn btn-primary btn-lg" target="_blank" rel="noopener">お問い合わせフォーム</a>
+        </div>
+        <div class="contact-links">
+          <a href="services.html">提供サービス詳細 →</a>
+          <a href="index.html">トップに戻る →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Fukumaru_40</p>
+      <p class="footer-copy">© <span id="year"></span> Fukumaru_40. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
