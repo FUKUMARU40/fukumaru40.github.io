@@ -3,395 +3,357 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fukumaru_40 | BIダッシュボード・LP制作・GAS自動化・AI業務改善</title>
-  <meta name="description" content="BIダッシュボード制作、LP・ポートフォリオページ制作、GAS自動化、AI活用支援。Excelの数字も、お問い合わせ動線も、現場で使われる仕組みに整えます。一人社長・個人事業主・中小企業向け。" />
-  <meta property="og:title" content="Fukumaru_40 | BIダッシュボード・LP制作・AI業務改善" />
-  <meta property="og:description" content="BI・LP・GAS・AIを組み合わせて、数字の可視化からお問い合わせ動線まで、現場で使われる仕組みを設計します。" />
+  <title>FUKUMARU40 | 借金→再生、そしてAIで再起。</title>
+  <meta name="description" content="20代で任意整理、40代で個人再生。どん底から這い上がる過程と、AIを使った副業・収益化・家計再建の記録。NoteとXで発信しています。" />
+  <meta property="og:title" content="FUKUMARU40 | 借金→再生、そしてAIで再起。" />
+  <meta property="og:description" content="20代で任意整理、40代で個人再生。どん底からの再建記録と、AIを使った副業・収益化。" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fukumaru40.github.io/" />
+  <meta property="og:image" content="https://fukumaru40.github.io/services/assets/images/avatar.png" />
+  <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #5b677a;
+      --subtle: #8a94a6;
+      --line: #e7ecf3;
+      --paper: #ffffff;
+      --soft: #f6f4f0;
+      --accent: #d97a4a;
+      --accent-dark: #b85d2f;
+      --blue: #1f4fbc;
+      --shadow: 0 18px 48px rgba(17, 24, 39, 0.10);
+      --radius: 14px;
+      --maxw: 880px;
+      --font-jp: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-en: "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--font-jp);
+      font-size: 16px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(100% - 40px, var(--maxw)); margin-inline: auto; }
+
+    /* Hero */
+    .hero {
+      padding: 96px 0 56px;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #fff4e8 0%, transparent 60%),
+        var(--paper);
+      text-align: center;
+    }
+    .avatar {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 24px;
+      box-shadow: var(--shadow);
+      border: 4px solid #fff;
+    }
+    .hero h1 {
+      font-family: var(--font-en);
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: 0.02em;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .hero .handle {
+      color: var(--subtle);
+      font-family: var(--font-en);
+      margin: 0 0 24px;
+      font-size: 15px;
+    }
+    .hero .tagline {
+      font-size: clamp(18px, 2.4vw, 22px);
+      font-weight: 700;
+      margin: 0 auto 16px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .hero .lead {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 15px;
+    }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    section.alt { background: var(--soft); }
+    .eyebrow {
+      font-family: var(--font-en);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+    h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      margin: 0 0 24px;
+      line-height: 1.5;
+    }
+    p { color: var(--ink); }
+    .muted { color: var(--muted); }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .about-list {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+      margin: 16px 0 0;
+    }
+    .about-list li {
+      padding-left: 22px;
+      position: relative;
+      color: var(--muted);
+    }
+    .about-list li::before {
+      content: "○";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+      top: 6px;
+    }
+
+    /* Card grid */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+    .card .label {
+      font-family: var(--font-en);
+      font-size: 12px;
+      color: var(--subtle);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .card .arrow {
+      margin-top: auto;
+      font-family: var(--font-en);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Services callout */
+    .services-callout {
+      background: linear-gradient(135deg, #fff 0%, #fff7ef 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+    }
+    .btn-outline:hover { background: var(--ink); color: #fff; }
+
+    /* Contact */
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0 56px;
+      text-align: center;
+      color: var(--subtle);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+    footer .links {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    footer a:hover { color: var(--accent); }
+  </style>
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Fukumaru_40 ホーム">
-        <img src="assets/images/avatar.png" alt="" class="brand-mark" />
-        <span>Fukumaru_40</span>
-      </a>
-      <nav class="nav" aria-label="メインナビゲーション">
-        <a href="#services">Services</a>
-        <a href="#audience">For You</a>
-        <a href="#works">Works</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="nav-cta">Contact</a>
-      </nav>
-      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-media" src="assets/images/dashboard-restaurant.png" alt="BIダッシュボードのサンプル画面" />
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <p class="eyebrow">BI Dashboard / LP / GAS Automation / AI Workflow</p>
-        <h1 id="hero-title">数字も、お問い合わせも、<br />売上につながる動線へ。</h1>
-        <p class="hero-lead">
-          BIダッシュボード、LP・ポートフォリオ、GAS自動化、AI活用支援。
-          Excelの集計から、お客様が動くWeb画面まで、現場で使える形に整えます。
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <img class="avatar" src="services/assets/images/avatar.png" alt="FUKUMARU40 アバター" />
+        <h1>FUKUMARU40</h1>
+        <p class="handle">@FUKUMARU_40</p>
+        <p class="tagline">借金→再生、そしてAIで再起。</p>
+        <p class="lead">
+          20代で任意整理、40代で個人再生。どん底から這い上がった男のリアル再建記録。
+          猫3匹と妻と、少しずつ前へ。
         </p>
-        <div class="hero-actions">
-          <a href="#services" class="btn btn-primary">できることを見る</a>
-          <a href="#contact" class="btn btn-light">無料で相談する</a>
-        </div>
-        <dl class="hero-stats" aria-label="実績と対応範囲">
-          <div>
-            <dt>4領域</dt>
-            <dd>BI / LP / GAS / AI</dd>
-          </div>
-          <div>
-            <dt>14年</dt>
-            <dd>現場・管理業務経験</dd>
-          </div>
-          <div>
-            <dt>24h以内</dt>
-            <dd>初回返信目安</dd>
-          </div>
-        </dl>
       </div>
     </section>
 
-    <section class="intro section-tight">
-      <div class="container intro-grid">
+    <!-- About -->
+    <section class="alt">
+      <div class="container about-grid">
         <div>
-          <p class="eyebrow dark">What I Solve</p>
-          <h2>「数字」「見せ方」「お問い合わせ動線」をひと続きで整えます。</h2>
-        </div>
-        <div class="intro-copy">
-          <p>
-            社内の数字が散らばっている、報告資料に時間がかかる、Webサイトはあるが問い合わせに繋がらない、AIを使いたいが何から始めるかわからない。
-            こうしたバラバラな課題は、ひとつずつ片付けても全体の流れは整いません。
+          <p class="eyebrow">About</p>
+          <h2>発信していること</h2>
+          <p class="muted">
+            お金で行き詰まった経験と、そこから立て直していく過程をそのまま記録しています。
+            最近はAIを業務や副業に取り入れて、収益化の幅を広げる試みも公開中。
           </p>
-          <p>
-            Fukumaru_40は、BI・LP・自動化・AIの4領域をワンストップで支援する個人パートナーです。
-            現場目線と管理目線の両方から、データの集約・更新・見せ方・受注動線・運用ルールまで一緒に設計します。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow dark">Services</p>
-          <h2>4つの領域を、ひとりで一気通貫サポート。</h2>
-          <p>BIダッシュボードを軸に、LP制作・GAS自動化・AI活用支援まで、一人社長・小規模事業に必要な「数字と動線」をまとめて整えます。</p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <p class="service-kicker">01 / Dashboard</p>
-            <h3>BIダッシュボード制作</h3>
-            <p>
-              売上、在庫、顧客、案件の数字を整理し、Looker StudioやHTMLでブラウザから見られる経営画面に。
-              KPIカード、推移グラフ、ランキング、フィルターまで設計します。
-            </p>
-            <ul class="service-points">
-              <li>スポット制作 10〜20万円〜</li>
-              <li>月額運用サポート 3〜5万円</li>
-            </ul>
-          </article>
-          <article class="service-card">
-            <div class="service-icon lp" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <p class="service-kicker">02 / Landing Page</p>
-            <h3>LP・ポートフォリオ制作</h3>
-            <p>
-              個人事業・サービス紹介・採用ページなど、1ページ完結のLPを設計から構築まで。
-              Googleフォーム連携の問い合わせ動線まで一緒に組み立てます。
-            </p>
-            <ul class="service-points">
-              <li>軽量1ページLP 5〜15万円</li>
-              <li>このサイト自体が制作サンプル</li>
-            </ul>
-          </article>
-          <article class="service-card">
-            <div class="service-icon automation" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <p class="service-kicker">03 / Automation</p>
-            <h3>GAS・集計自動化</h3>
-            <p>
-              毎月・毎週の集計作業をGoogle Apps Scriptで自動化。
-              スプレッドシート更新、ファイル検知、レポート作成など、繰り返し作業を減らします。
-            </p>
-            <ul class="service-points">
-              <li>小規模スクリプト 3〜6万円</li>
-              <li>定期実行＋通知込み 5〜10万円</li>
-            </ul>
-          </article>
-          <article class="service-card">
-            <div class="service-icon ai" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <p class="service-kicker">04 / AI Workflow</p>
-            <h3>AI活用・チャットボット</h3>
-            <p>
-              ChatGPT、Claude、Geminiを使った業務フロー改善、FAQ整理、社内チャットボット設計を支援。
-              現場で無理なく使える形に落とし込みます。
-            </p>
-            <ul class="service-points">
-              <li>業務改善サポート 5〜10万円</li>
-              <li>チャットボット構築 10〜15万円〜</li>
-            </ul>
-          </article>
-        </div>
-        <p class="service-note">
-          ※ 価格はあくまで目安です。データ量・要件・運用範囲によって変動します。まずは無料ヒアリングで具体的なお見積りをお出しします。
-        </p>
-      </div>
-    </section>
-
-    <section class="section audience-band" id="audience">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow dark">For You</p>
-          <h2>こんな方の課題に向き合っています。</h2>
-          <p>「自社にとって頼めるか分からない」が一番もったいない状態です。少しでも当てはまればご相談ください。</p>
-        </div>
-        <div class="audience-grid">
-          <article class="audience-card">
-            <span class="audience-tag">経営者・店舗オーナー</span>
-            <h3>数字を毎月Excelでまとめている</h3>
-            <p>売上・客数・在庫の集計に時間がかかっている。経営判断をもっと早く、感覚ではなく数字で。</p>
-          </article>
-          <article class="audience-card">
-            <span class="audience-tag">一人社長・個人事業主</span>
-            <h3>事業紹介ページを持っていない</h3>
-            <p>「どんなサービスをやっているのか」を一枚で説明できるLPと、問い合わせフォームの動線を一気に整えたい。</p>
-          </article>
-          <article class="audience-card">
-            <span class="audience-tag">バックオフィス担当</span>
-            <h3>同じ作業を毎週繰り返している</h3>
-            <p>スプレッドシート更新、レポート作成、通知作業。GASとAIで仕組み化して時間を取り戻したい。</p>
-          </article>
-          <article class="audience-card">
-            <span class="audience-tag">中小企業・チームリーダー</span>
-            <h3>AIを使いたいが何から始めるか分からない</h3>
-            <p>生成AIを業務にどう組み込むか、FAQ整理、チャットボット、プロンプト整備まで実用優先で支援します。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section work-band" id="works">
-      <div class="container">
-        <div class="section-head align-left">
-          <p class="eyebrow">Works</p>
-          <h2>実際のアウトプットが見えるから、相談しやすい。</h2>
-          <p>業種別のサンプルダッシュボードを用意しています。LP制作のサンプルは、いまご覧いただいているこのページそのものです。自社のデータ・ブランドに置き換えた完成イメージを具体的に確認できます。</p>
-        </div>
-        <div class="work-feature">
-          <figure class="work-main">
-            <img src="assets/images/dashboard-ec.png" alt="EC事業向けの経営ダッシュボードサンプル" />
-          </figure>
-          <div class="work-side">
-            <article>
-              <span>EC</span>
-              <h3>GMV、CVR、LTVを横断して把握</h3>
-              <p>モール別売上、購入ファネル、新規・リピーター比率を一画面に集約。</p>
-            </article>
-            <article>
-              <span>Retail</span>
-              <h3>店舗別の売上と在庫リスクを可視化</h3>
-              <p>売れ筋、在庫切れ、回転率を合わせて見て、発注判断を早くします。</p>
-            </article>
-            <article>
-              <span>Professional</span>
-              <h3>案件進捗と稼働状況を整理</h3>
-              <p>士業・専門サービスの案件管理、売上見込み、担当者別稼働を見える化。</p>
-            </article>
-          </div>
-        </div>
-        <div class="work-gallery" aria-label="ダッシュボードサンプル一覧">
-          <img src="assets/images/dashboard-retail.png" alt="小売店舗向けダッシュボードサンプル" />
-          <img src="assets/images/dashboard-restaurant.png" alt="飲食店向けダッシュボードサンプル" />
-          <img src="assets/images/dashboard-proservices.png" alt="士業事務所向けダッシュボードサンプル" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split-section">
-        <div class="visual-panel" aria-hidden="true">
-          <div class="mini-browser">
-            <div class="browser-bar"><span></span><span></span><span></span></div>
-            <div class="browser-body">
-              <div class="kpi-row">
-                <strong>¥12,450,000</strong>
-                <strong>78.5%</strong>
-              </div>
-              <div class="chart-bars">
-                <span style="height: 52%"></span>
-                <span style="height: 72%"></span>
-                <span style="height: 46%"></span>
-                <span style="height: 88%"></span>
-                <span style="height: 64%"></span>
-              </div>
-              <div class="line-chart"></div>
-            </div>
-          </div>
-        </div>
-        <div class="text-panel">
-          <p class="eyebrow dark">Before / After</p>
-          <h2>「毎回手作業」から「開けば最新・聞けば返事」へ。</h2>
-          <ul class="check-list">
-            <li>ExcelやCSVを毎月手でまとめている</li>
-            <li>社長、現場、担当者で見たい数字が違う</li>
-            <li>サービス紹介ページがなく、口頭で説明している</li>
-            <li>問い合わせフォームがなく、SNSのDMで対応している</li>
-            <li>AIを使いたいが、業務にどう組み込むか決まっていない</li>
+          <ul class="about-list">
+            <li>借金との向き合い方</li>
+            <li>家計を立て直す仕組み</li>
+            <li>AIを使った副業・収益化</li>
+            <li>40代からのお金・働き方</li>
           </ul>
-          <p>
-            こうした状態を、データの入力・更新・可視化、Web上の見せ方、問い合わせ動線、運用ルールまで含めて整理します。
-            小さく始めて、使いながら育てる進め方も可能です。
-          </p>
         </div>
       </div>
     </section>
 
-    <section class="section process-band" id="process">
+    <!-- Media / Links -->
+    <section>
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow dark">Process</p>
-          <h2>相談から納品までの流れ</h2>
+        <p class="eyebrow">Media</p>
+        <h2>発信メディア</h2>
+        <p class="muted">日々の思考と、踏み出した一歩を残しています。</p>
+
+        <div class="cards">
+          <a class="card" href="https://note.com/fukumaru_40" target="_blank" rel="noopener">
+            <span class="label">Note</span>
+            <h3>note.com/fukumaru_40</h3>
+            <p>再建のプロセス、家計、AI活用、副業の試行錯誤を中心に長文で公開しています。</p>
+            <span class="arrow">読む →</span>
+          </a>
+          <a class="card" href="https://x.com/FUKUMARU_40" target="_blank" rel="noopener">
+            <span class="label">X (Twitter)</span>
+            <h3>@FUKUMARU_40</h3>
+            <p>日々の気づき、小さな前進、AIで試したことをリアルタイムで投稿中。</p>
+            <span class="arrow">フォローする →</span>
+          </a>
         </div>
-        <ol class="process-list">
-          <li>
-            <span>01</span>
-            <h3>ヒアリング</h3>
-            <p>見たい数字、今の管理方法、利用者、希望納期を確認します。チャットでの相談も可能です。</p>
-          </li>
-          <li>
-            <span>02</span>
-            <h3>設計</h3>
-            <p>KPI、画面構成、更新方法を整理し、どのデータをどうつなぐかを決めます。</p>
-          </li>
-          <li>
-            <span>03</span>
-            <h3>構築</h3>
-            <p>Looker Studio、スプレッドシート、GASを組み合わせて、実データで動く状態にします。</p>
-          </li>
-          <li>
-            <span>04</span>
-            <h3>納品・改善</h3>
-            <p>操作方法を共有し、修正対応まで実施。必要に応じて月次運用にも切り替えられます。</p>
-          </li>
-        </ol>
       </div>
     </section>
 
-    <section class="section" id="profile">
-      <div class="container profile-grid">
-        <div class="profile-card">
-          <img src="assets/images/avatar.png" alt="Fukumaru_40のアイコン" />
-          <h2>Fukumaru_40</h2>
-          <p>BIダッシュボード制作・GAS自動化・AI業務改善</p>
-        </div>
-        <div class="profile-body">
-          <p class="eyebrow dark">Profile</p>
-          <h2>現場で使われるか、管理側が見続けられるか。両方から設計します。</h2>
-          <p>
-            飲食・小売の現場経験と、教育業界での管理業務経験をもとに、
-            「きれいな画面」だけでなく、更新され続ける運用まで考えた仕組みを作ります。
+    <!-- Services anchor (keeps existing X profile link working) -->
+    <section id="services" class="alt">
+      <div class="container">
+        <p class="eyebrow">Services</p>
+        <h2>仕事のご相談について</h2>
+        <p class="muted">
+          BIダッシュボード制作、LP・ポートフォリオ制作、GAS自動化、AI活用支援を行っています。
+          一人社長・個人事業主・中小企業向けに、現場で使われる仕組みに整えます。
+        </p>
+        <div class="services-callout">
+          <p style="margin:0; font-weight:700;">サービス詳細は専用ページにまとめています。</p>
+          <p class="muted" style="margin:0;">
+            BI / LP / GAS / AI の4領域での具体的な提供内容、実績、料金感をご覧いただけます。
           </p>
-          <div class="tag-list">
-            <span>Looker Studio</span>
-            <span>Google Apps Script</span>
-            <span>Google Sheets</span>
-            <span>Excel</span>
-            <span>ChatGPT</span>
-            <span>Claude</span>
-            <span>Gemini</span>
-            <span>Dify</span>
+          <div class="contact-row">
+            <a href="services/" class="btn btn-primary">サービス詳細を見る →</a>
+            <a href="services/#contact" class="btn btn-outline">無料で相談する</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section faq-band" id="faq">
+    <!-- Contact -->
+    <section id="contact">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow dark">FAQ</p>
-          <h2>よくいただくご質問</h2>
-          <p>「自分のような規模でも相談していいのか」が一番多い質問です。結論、規模を問わずご相談いただけます。</p>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>個人事業主や小規模でも依頼できますか？</summary>
-            <p>もちろん可能です。むしろ、一人社長・個人事業主・小規模チームを主な対象としています。BI・LP・自動化のいずれも、小さく始めて使いながら育てる進め方ができます。</p>
-          </details>
-          <details class="faq-item">
-            <summary>初回相談は有料ですか？</summary>
-            <p>無料です。お問い合わせフォームまたはXからご連絡ください。現状のデータ・サービス・課題をお伺いして、構成案とおおよそのお見積りをお出しします。</p>
-          </details>
-          <details class="faq-item">
-            <summary>納期はどのくらいですか？</summary>
-            <p>規模によりますが、LPは2〜3週間、BIダッシュボードは3〜4週間、GAS自動化は1〜2週間が目安です。お急ぎの案件はご相談ください。</p>
-          </details>
-          <details class="faq-item">
-            <summary>業界経験のない分野でも対応できますか？</summary>
-            <p>飲食・小売・教育・士業など、これまで複数業界の業務を可視化してきました。初回ヒアリングと既存資料の共有で、業界固有の用語・指標もキャッチアップしてご提案します。</p>
-          </details>
-          <details class="faq-item">
-            <summary>BIとLPとAIをまとめて頼むこともできますか？</summary>
-            <p>はい、組み合わせのご相談を歓迎します。「LPで集めた問い合わせをスプレッドシートに集約し、ダッシュボードで確認、AIが下書き対応」のような一気通貫の設計が得意です。</p>
-          </details>
-          <details class="faq-item">
-            <summary>納品後の修正対応はありますか？</summary>
-            <p>初回納品から2週間の軽微な修正は無料で対応します。継続的な運用・改善が必要な場合は、月額サポートプラン（3〜5万円〜）もご用意しています。</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container contact-inner">
         <p class="eyebrow">Contact</p>
-        <h2>「うちの場合、何ができますか？」から始めましょう。</h2>
-        <p>
-          BI・LP・GAS・AI、どれか一つでも、組み合わせでも、相談内容が固まっていなくても大丈夫です。
-          現在のデータ・サービス・課題をもとに、どんな形にできるか整理してご提案します。初回ヒアリング無料・全国オンライン対応・24時間以内に初回返信。
+        <h2>お問い合わせ</h2>
+        <p class="muted">
+          Note・X へのコメント／DM、もしくはお問い合わせフォームからお気軽にどうぞ。
         </p>
-        <div class="contact-actions">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener">無料で相談する（フォーム）</a>
-          <a href="https://x.com/FUKUMARU_40" class="btn btn-light" target="_blank" rel="noopener">XのDMで相談する</a>
+        <div class="contact-row">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">
+            フォームから問い合わせる
+          </a>
+          <a href="https://x.com/FUKUMARU_40" target="_blank" rel="noopener" class="btn btn-outline">
+            X でメッセージを送る
+          </a>
         </div>
-        <ul class="contact-meta" aria-label="ご依頼の前提">
-          <li>初回ヒアリング無料</li>
-          <li>全国オンライン対応</li>
-          <li>24時間以内に初回返信</li>
-          <li>個人・小規模OK</li>
-        </ul>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>Fukumaru_40</p>
-      <small>&copy; <span id="year"></span> Fukumaru_40. All rights reserved.</small>
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="https://note.com/fukumaru_40" target="_blank" rel="noopener">Note</a>
+        <a href="https://x.com/FUKUMARU_40" target="_blank" rel="noopener">X</a>
+        <a href="services/">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p>© FUKUMARU40</p>
     </div>
   </footer>
-
-  <script src="js/script.js" defer></script>
 </body>
 </html>
