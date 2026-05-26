@@ -3,553 +3,392 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fukumaru_40 ｜ BIダッシュボード構築・AI業務効率化の専門家</title>
-  <meta name="description" content="飲食・英会話業界で14年の現場経験を持つAI活用支援の専門家。Excelデータの自動集計・可視化（BIダッシュボード）、チャットボット構築、AI活用・業務代行まで、現場と管理の両方の目線で「使われる仕組み」を設計します。" />
-  <meta property="og:title" content="Fukumaru_40 ｜ BIダッシュボード構築・AI業務効率化の専門家" />
-  <meta property="og:description" content="14年の現場経験 × 生成AIパスポート保有。BI／チャットボット／AI業務代行で、あなたの「繰り返し業務」を仕組みで解決します。" />
+  <title>Fukumaru_40 | BIダッシュボード・LP制作・GAS自動化・AI業務改善</title>
+  <meta name="description" content="BIダッシュボード制作、LP・ポートフォリオページ制作、GAS自動化、AI活用支援。Excelの数字も、お問い合わせ動線も、現場で使われる仕組みに整えます。一人社長・個人事業主・中小企業向け。" />
+  <meta property="og:title" content="Fukumaru_40 | BIダッシュボード・LP制作・AI業務改善" />
+  <meta property="og:description" content="BI・LP・GAS・AIを組み合わせて、数字の可視化からお問い合わせ動線まで、現場で使われる仕組みを設計します。" />
   <meta property="og:type" content="website" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="#hero" class="brand">Fukumaru_40</a>
+      <a href="#top" class="brand" aria-label="Fukumaru_40 ホーム">
+        <img src="assets/images/avatar.png" alt="" class="brand-mark" />
+        <span>Fukumaru_40</span>
+      </a>
       <nav class="nav" aria-label="メインナビゲーション">
-        <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="works.html">Works</a>
-        <a href="#tools">Tools</a>
-        <a href="#flow">Flow</a>
+        <a href="#audience">For You</a>
+        <a href="#works">Works</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact" class="nav-cta">Contact</a>
       </nav>
-      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <div class="hero-text reveal">
-          <p class="hero-eyebrow">AI活用支援 ／ 業務代行</p>
-          <h1 class="hero-title">
-            <span class="hero-name">Fukumaru_40</span>
-          </h1>
-          <p class="hero-lead">
-            <strong>BIダッシュボード構築</strong>と<br class="sp-only" />
-            <strong>AI業務効率化</strong>の専門家。
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-media" src="assets/images/dashboard-restaurant.png" alt="BIダッシュボードのサンプル画面" />
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">BI Dashboard / LP / GAS Automation / AI Workflow</p>
+        <h1 id="hero-title">数字も、お問い合わせも、<br />売上につながる動線へ。</h1>
+        <p class="hero-lead">
+          BIダッシュボード、LP・ポートフォリオ、GAS自動化、AI活用支援。
+          Excelの集計から、お客様が動くWeb画面まで、現場で使える形に整えます。
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">できることを見る</a>
+          <a href="#contact" class="btn btn-light">無料で相談する</a>
+        </div>
+        <dl class="hero-stats" aria-label="実績と対応範囲">
+          <div>
+            <dt>4領域</dt>
+            <dd>BI / LP / GAS / AI</dd>
+          </div>
+          <div>
+            <dt>14年</dt>
+            <dd>現場・管理業務経験</dd>
+          </div>
+          <div>
+            <dt>24h以内</dt>
+            <dd>初回返信目安</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="intro section-tight">
+      <div class="container intro-grid">
+        <div>
+          <p class="eyebrow dark">What I Solve</p>
+          <h2>「数字」「見せ方」「お問い合わせ動線」をひと続きで整えます。</h2>
+        </div>
+        <div class="intro-copy">
+          <p>
+            社内の数字が散らばっている、報告資料に時間がかかる、Webサイトはあるが問い合わせに繋がらない、AIを使いたいが何から始めるかわからない。
+            こうしたバラバラな課題は、ひとつずつ片付けても全体の流れは整いません。
           </p>
-          <p class="hero-sub">
-            飲食・英会話業界で <em>14年の現場経験</em>。<br />
-            Excelの自動集計から、チャットボット・AI活用支援まで一気通貫で対応します。
+          <p>
+            Fukumaru_40は、BI・LP・自動化・AIの4領域をワンストップで支援する個人パートナーです。
+            現場目線と管理目線の両方から、データの集約・更新・見せ方・受注動線・運用ルールまで一緒に設計します。
           </p>
-          <div class="hero-cta">
-            <a href="#services" class="btn btn-primary">サービスを見る</a>
-            <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
-          </div>
-          <div class="hero-meta">
-            <span>● 生成AIパスポート保有</span>
-            <span>● 社内AIエバンジェリスト</span>
-            <span>● オンライン全国対応</span>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal" aria-hidden="true">
-          <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="illust-dashboard">
-            <!-- 背景ブロブ -->
-            <circle cx="270" cy="240" r="210" fill="#F2EADB" opacity="0.7"/>
-            <circle cx="380" cy="140" r="70" fill="#ECE0C7" opacity="0.6"/>
-            <circle cx="100" cy="380" r="60" fill="#ECE0C7" opacity="0.5"/>
-
-            <!-- ダッシュボードウィンドウ -->
-            <rect x="80" y="130" width="340" height="230" rx="14" fill="#FAF6EF" stroke="#B8895A" stroke-width="2.5"/>
-            <rect x="80" y="130" width="340" height="34" rx="14" fill="#B8895A"/>
-            <rect x="80" y="148" width="340" height="16" fill="#B8895A"/>
-            <circle cx="102" cy="147" r="4" fill="#FAF6EF"/>
-            <circle cx="118" cy="147" r="4" fill="#FAF6EF"/>
-            <circle cx="134" cy="147" r="4" fill="#FAF6EF"/>
-
-            <!-- KPIカード -->
-            <rect x="100" y="180" width="90" height="50" rx="6" fill="#F2EADB" stroke="#E8DCC4" stroke-width="1"/>
-            <rect x="108" y="190" width="40" height="6" rx="3" fill="#B8895A"/>
-            <rect x="108" y="204" width="60" height="12" rx="3" fill="#7A5230"/>
-
-            <rect x="200" y="180" width="90" height="50" rx="6" fill="#F2EADB" stroke="#E8DCC4" stroke-width="1"/>
-            <rect x="208" y="190" width="50" height="6" rx="3" fill="#B8895A"/>
-            <rect x="208" y="204" width="50" height="12" rx="3" fill="#7A5230"/>
-
-            <rect x="300" y="180" width="90" height="50" rx="6" fill="#F2EADB" stroke="#E8DCC4" stroke-width="1"/>
-            <rect x="308" y="190" width="35" height="6" rx="3" fill="#B8895A"/>
-            <rect x="308" y="204" width="65" height="12" rx="3" fill="#7A5230"/>
-
-            <!-- 棒グラフ -->
-            <rect x="105" y="295" width="18" height="40" rx="2" fill="#7A5230"/>
-            <rect x="130" y="270" width="18" height="65" rx="2" fill="#B8895A"/>
-            <rect x="155" y="245" width="18" height="90" rx="2" fill="#7A5230"/>
-            <rect x="180" y="260" width="18" height="75" rx="2" fill="#B8895A"/>
-            <line x1="100" y1="335" x2="205" y2="335" stroke="#E8DCC4" stroke-width="1"/>
-
-            <!-- 折れ線グラフ -->
-            <polyline points="235,320 265,280 295,295 325,250 355,260 385,225"
-                      stroke="#7A5230" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <polyline points="235,320 265,280 295,295 325,250 355,260 385,225 385,335 235,335"
-                      fill="#B8895A" opacity="0.18"/>
-            <circle cx="235" cy="320" r="3.5" fill="#7A5230"/>
-            <circle cx="265" cy="280" r="3.5" fill="#7A5230"/>
-            <circle cx="295" cy="295" r="3.5" fill="#7A5230"/>
-            <circle cx="325" cy="250" r="3.5" fill="#7A5230"/>
-            <circle cx="355" cy="260" r="3.5" fill="#7A5230"/>
-            <circle cx="385" cy="225" r="3.5" fill="#7A5230"/>
-
-            <!-- きらめき -->
-            <g class="illust-sparkle" style="transform-origin: 440px 110px;">
-              <path d="M440 95 L443 107 L455 110 L443 113 L440 125 L437 113 L425 110 L437 107 Z" fill="#B8895A"/>
-            </g>
-            <g class="illust-sparkle illust-sparkle-2" style="transform-origin: 60px 250px;">
-              <path d="M60 240 L62 248 L70 250 L62 252 L60 260 L58 252 L50 250 L58 248 Z" fill="#B8895A"/>
-            </g>
-            <g class="illust-sparkle illust-sparkle-3" style="transform-origin: 460px 380px;">
-              <path d="M460 370 L462.5 378 L470 380 L462.5 382 L460 390 L457.5 382 L450 380 L457.5 378 Z" fill="#7A5230"/>
-            </g>
-
-            <!-- チャットバブル -->
-            <g class="illust-bubble">
-              <path d="M345 395 Q345 375 365 375 L430 375 Q450 375 450 395 L450 415 Q450 435 430 435 L385 435 L370 450 L375 435 Q345 435 345 415 Z"
-                    fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-              <circle cx="375" cy="405" r="3" fill="#B8895A"/>
-              <circle cx="395" cy="405" r="3" fill="#B8895A"/>
-              <circle cx="415" cy="405" r="3" fill="#B8895A"/>
-            </g>
-
-            <!-- 歯車 -->
-            <g class="illust-gear" style="transform-origin: 65px 395px;">
-              <circle cx="65" cy="395" r="22" fill="none" stroke="#B8895A" stroke-width="2.5"/>
-              <circle cx="65" cy="395" r="9" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-              <rect x="62" y="365" width="6" height="8" rx="1" fill="#B8895A"/>
-              <rect x="62" y="417" width="6" height="8" rx="1" fill="#B8895A"/>
-              <rect x="35" y="392" width="8" height="6" rx="1" fill="#B8895A"/>
-              <rect x="87" y="392" width="8" height="6" rx="1" fill="#B8895A"/>
-              <rect x="44" y="372" width="6" height="8" rx="1" fill="#B8895A" transform="rotate(-45 47 376)"/>
-              <rect x="80" y="408" width="6" height="8" rx="1" fill="#B8895A" transform="rotate(-45 83 412)"/>
-              <rect x="80" y="372" width="6" height="8" rx="1" fill="#B8895A" transform="rotate(45 83 376)"/>
-              <rect x="44" y="408" width="6" height="8" rx="1" fill="#B8895A" transform="rotate(45 47 412)"/>
-            </g>
-          </svg>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section section-alt">
+    <section class="section" id="services">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="section-eyebrow">About</p>
-          <h2 class="section-title">私について</h2>
-        </header>
-        <div class="about-grid">
-          <div class="about-visual reveal" aria-hidden="true">
-            <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" class="illust-workspace">
-              <!-- 背景 -->
-              <circle cx="200" cy="200" r="160" fill="#FAF6EF"/>
-              <ellipse cx="200" cy="320" rx="170" ry="14" fill="#ECE0C7" opacity="0.5"/>
-
-              <!-- デスク -->
-              <rect x="50" y="240" width="300" height="10" rx="3" fill="#B8895A"/>
-              <rect x="60" y="250" width="6" height="60" fill="#7A5230"/>
-              <rect x="334" y="250" width="6" height="60" fill="#7A5230"/>
-
-              <!-- ノートPC -->
-              <rect x="140" y="170" width="170" height="110" rx="6" fill="#7A5230"/>
-              <rect x="148" y="178" width="154" height="92" rx="3" fill="#FAF6EF"/>
-              <rect x="125" y="276" width="200" height="8" rx="3" fill="#B8895A"/>
-              <!-- 画面の中身 -->
-              <rect x="156" y="188" width="40" height="6" rx="2" fill="#B8895A"/>
-              <rect x="156" y="200" width="60" height="4" rx="2" fill="#E8DCC4"/>
-              <rect x="156" y="208" width="50" height="4" rx="2" fill="#E8DCC4"/>
-              <!-- ミニ棒グラフ -->
-              <rect x="220" y="240" width="10" height="20" fill="#7A5230"/>
-              <rect x="234" y="230" width="10" height="30" fill="#B8895A"/>
-              <rect x="248" y="220" width="10" height="40" fill="#7A5230"/>
-              <rect x="262" y="235" width="10" height="25" fill="#B8895A"/>
-              <rect x="276" y="225" width="10" height="35" fill="#7A5230"/>
-
-              <!-- 観葉植物 -->
-              <rect x="65" y="200" width="40" height="50" rx="4" fill="#7A5230"/>
-              <path d="M85 200 Q70 170 60 145 Q75 155 85 175 Z" fill="#B8895A"/>
-              <path d="M85 200 Q100 170 110 140 Q95 155 85 175 Z" fill="#7A5230"/>
-              <path d="M85 200 Q85 165 80 130 Q90 150 85 175 Z" fill="#B8895A"/>
-
-              <!-- コーヒーカップ -->
-              <rect x="320" y="210" width="26" height="30" rx="3" fill="#FAF6EF" stroke="#7A5230" stroke-width="2"/>
-              <path d="M346 218 Q358 218 358 228 Q358 238 346 238" fill="none" stroke="#7A5230" stroke-width="2"/>
-              <ellipse cx="333" cy="213" rx="11" ry="3" fill="#7A5230"/>
-              <path d="M328 205 Q328 200 332 200 M335 207 Q335 200 339 200" stroke="#B8895A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-
-              <!-- 吹き出し（AI） -->
-              <g class="illust-float">
-                <ellipse cx="115" cy="100" rx="50" ry="30" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-                <text x="115" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#7A5230">AI</text>
-                <path d="M130 120 L142 132 L138 120 Z" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-              </g>
-
-              <!-- きらめき -->
-              <g class="illust-sparkle" style="transform-origin: 305px 100px;">
-                <path d="M305 88 L308 97 L317 100 L308 103 L305 112 L302 103 L293 100 L302 97 Z" fill="#B8895A"/>
-              </g>
-              <g class="illust-sparkle illust-sparkle-2" style="transform-origin: 350px 160px;">
-                <path d="M350 152 L351.5 158 L358 160 L351.5 162 L350 168 L348.5 162 L342 160 L348.5 158 Z" fill="#7A5230"/>
-              </g>
-            </svg>
-          </div>
-          <div class="about-content">
-            <div class="about-card reveal">
-              <p class="about-lead">
-                「<strong>現場で本当に使われるか？</strong>」と<br />
-                「<strong>運用として回るか？</strong>」 ——<br />
-                この両方を前提に仕組みを設計します。
-              </p>
-            </div>
-            <div class="about-text reveal">
-              <p>
-                飲食業界で <strong>現場9年</strong>、教育業界（英会話）で <strong>現場5年＋管理部8年</strong> の経験。
-                現場と管理、両方の目線から「使われる導線」と「運用できる仕組み」を作るのが強みです。
-              </p>
-              <p>
-                <strong>2024年10月：生成AIパスポート取得</strong>。
-                社内のAIエバンジェリストとして、活用ノウハウの収集・全社展開を担当しています。
-              </p>
-            </div>
-          </div>
+        <div class="section-head">
+          <p class="eyebrow dark">Services</p>
+          <h2>4つの領域を、ひとりで一気通貫サポート。</h2>
+          <p>BIダッシュボードを軸に、LP制作・GAS自動化・AI活用支援まで、一人社長・小規模事業に必要な「数字と動線」をまとめて整えます。</p>
         </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="service-kicker">01 / Dashboard</p>
+            <h3>BIダッシュボード制作</h3>
+            <p>
+              売上、在庫、顧客、案件の数字を整理し、Looker StudioやHTMLでブラウザから見られる経営画面に。
+              KPIカード、推移グラフ、ランキング、フィルターまで設計します。
+            </p>
+            <ul class="service-points">
+              <li>スポット制作 10〜20万円〜</li>
+              <li>月額運用サポート 3〜5万円</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <div class="service-icon lp" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <p class="service-kicker">02 / Landing Page</p>
+            <h3>LP・ポートフォリオ制作</h3>
+            <p>
+              個人事業・サービス紹介・採用ページなど、1ページ完結のLPを設計から構築まで。
+              Googleフォーム連携の問い合わせ動線まで一緒に組み立てます。
+            </p>
+            <ul class="service-points">
+              <li>軽量1ページLP 5〜15万円</li>
+              <li>このサイト自体が制作サンプル</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <div class="service-icon automation" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="service-kicker">03 / Automation</p>
+            <h3>GAS・集計自動化</h3>
+            <p>
+              毎月・毎週の集計作業をGoogle Apps Scriptで自動化。
+              スプレッドシート更新、ファイル検知、レポート作成など、繰り返し作業を減らします。
+            </p>
+            <ul class="service-points">
+              <li>小規模スクリプト 3〜6万円</li>
+              <li>定期実行＋通知込み 5〜10万円</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <div class="service-icon ai" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="service-kicker">04 / AI Workflow</p>
+            <h3>AI活用・チャットボット</h3>
+            <p>
+              ChatGPT、Claude、Geminiを使った業務フロー改善、FAQ整理、社内チャットボット設計を支援。
+              現場で無理なく使える形に落とし込みます。
+            </p>
+            <ul class="service-points">
+              <li>業務改善サポート 5〜10万円</li>
+              <li>チャットボット構築 10〜15万円〜</li>
+            </ul>
+          </article>
+        </div>
+        <p class="service-note">
+          ※ 価格はあくまで目安です。データ量・要件・運用範囲によって変動します。まずは無料ヒアリングで具体的なお見積りをお出しします。
+        </p>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section">
+    <section class="section audience-band" id="audience">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="section-eyebrow">Services</p>
-          <h2 class="section-title">こんなことができます</h2>
-          <p class="section-desc">3つの軸で、あなたの「繰り返し業務」を仕組み化します。</p>
-        </header>
-        <div class="services-grid">
-          <article class="service-card reveal">
-            <div class="service-illust" aria-hidden="true">
-              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="100" cy="125" rx="80" ry="6" fill="#ECE0C7" opacity="0.6"/>
-                <rect x="30" y="20" width="140" height="100" rx="8" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-                <rect x="30" y="20" width="140" height="16" rx="8" fill="#B8895A"/>
-                <rect x="30" y="28" width="140" height="8" fill="#B8895A"/>
-                <circle cx="40" cy="28" r="2" fill="#FAF6EF"/>
-                <circle cx="48" cy="28" r="2" fill="#FAF6EF"/>
-                <circle cx="56" cy="28" r="2" fill="#FAF6EF"/>
-                <!-- 棒グラフ -->
-                <rect x="44" y="80" width="14" height="28" rx="2" fill="#7A5230"/>
-                <rect x="62" y="65" width="14" height="43" rx="2" fill="#B8895A"/>
-                <rect x="80" y="55" width="14" height="53" rx="2" fill="#7A5230"/>
-                <line x1="40" y1="108" x2="98" y2="108" stroke="#E8DCC4" stroke-width="1"/>
-                <!-- 円グラフ -->
-                <circle cx="135" cy="80" r="22" fill="#F2EADB" stroke="#B8895A" stroke-width="1.5"/>
-                <path d="M135 80 L135 58 A22 22 0 0 1 154 92 Z" fill="#7A5230"/>
-                <path d="M135 80 L154 92 A22 22 0 0 1 122 99 Z" fill="#B8895A"/>
-                <!-- 装飾 -->
-                <path d="M180 30 L182 36 L188 38 L182 40 L180 46 L178 40 L172 38 L178 36 Z" fill="#B8895A"/>
-              </svg>
-            </div>
-            <h3 class="service-title">BIダッシュボード構築</h3>
-            <p class="service-text">
-              Excelデータを自動集計・グラフ化。GASで定期実行まで仕組み化し、報告作業を <em>ゼロ</em> に近づけます。
-            </p>
+        <div class="section-head">
+          <p class="eyebrow dark">For You</p>
+          <h2>こんな方の課題に向き合っています。</h2>
+          <p>「自社にとって頼めるか分からない」が一番もったいない状態です。少しでも当てはまればご相談ください。</p>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card">
+            <span class="audience-tag">経営者・店舗オーナー</span>
+            <h3>数字を毎月Excelでまとめている</h3>
+            <p>売上・客数・在庫の集計に時間がかかっている。経営判断をもっと早く、感覚ではなく数字で。</p>
           </article>
-
-          <article class="service-card reveal">
-            <div class="service-illust" aria-hidden="true">
-              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="100" cy="125" rx="80" ry="6" fill="#ECE0C7" opacity="0.6"/>
-                <!-- 左の吹き出し（質問） -->
-                <path d="M30 40 Q30 25 45 25 L95 25 Q110 25 110 40 L110 58 Q110 73 95 73 L70 73 L55 86 L60 73 Q30 73 30 58 Z"
-                      fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-                <text x="70" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#B8895A">?</text>
-                <!-- 右の吹き出し（回答） -->
-                <path d="M170 65 Q170 50 155 50 L110 50 Q95 50 95 65 L95 83 Q95 98 110 98 L135 98 L150 111 L145 98 Q170 98 170 83 Z"
-                      fill="#7A5230"/>
-                <path d="M120 78 L128 86 L142 70" stroke="#FAF6EF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- 装飾 -->
-                <path d="M180 30 L182 36 L188 38 L182 40 L180 46 L178 40 L172 38 L178 36 Z" fill="#B8895A"/>
-                <circle cx="20" cy="100" r="4" fill="#ECE0C7"/>
-                <circle cx="32" cy="110" r="3" fill="#ECE0C7"/>
-              </svg>
-            </div>
-            <h3 class="service-title">チャットボット構築</h3>
-            <p class="service-text">
-              HP向けFAQ／社内問い合わせ削減ボットを設計から公開まで。<em>「探す」から「聞けば解決」</em> へ。
-            </p>
+          <article class="audience-card">
+            <span class="audience-tag">一人社長・個人事業主</span>
+            <h3>事業紹介ページを持っていない</h3>
+            <p>「どんなサービスをやっているのか」を一枚で説明できるLPと、問い合わせフォームの動線を一気に整えたい。</p>
           </article>
-
-          <article class="service-card reveal">
-            <div class="service-illust" aria-hidden="true">
-              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="100" cy="125" rx="80" ry="6" fill="#ECE0C7" opacity="0.6"/>
-                <!-- ドキュメント -->
-                <rect x="40" y="20" width="80" height="100" rx="6" fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-                <rect x="50" y="35" width="40" height="6" rx="2" fill="#B8895A"/>
-                <rect x="50" y="50" width="60" height="3" rx="1.5" fill="#E8DCC4"/>
-                <rect x="50" y="58" width="55" height="3" rx="1.5" fill="#E8DCC4"/>
-                <rect x="50" y="66" width="50" height="3" rx="1.5" fill="#E8DCC4"/>
-                <rect x="50" y="80" width="60" height="3" rx="1.5" fill="#E8DCC4"/>
-                <rect x="50" y="88" width="45" height="3" rx="1.5" fill="#E8DCC4"/>
-                <rect x="50" y="100" width="35" height="3" rx="1.5" fill="#E8DCC4"/>
-                <!-- AIサークル -->
-                <circle cx="140" cy="60" r="32" fill="#7A5230"/>
-                <text x="140" y="67" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#FAF6EF">AI</text>
-                <!-- きらめき -->
-                <path d="M170 30 L172 36 L178 38 L172 40 L170 46 L168 40 L162 38 L168 36 Z" fill="#B8895A"/>
-                <path d="M180 80 L181.5 84 L186 86 L181.5 88 L180 92 L178.5 88 L174 86 L178.5 84 Z" fill="#B8895A"/>
-                <path d="M125 110 L126.5 114 L131 116 L126.5 118 L125 122 L123.5 118 L119 116 L123.5 114 Z" fill="#7A5230"/>
-              </svg>
-            </div>
-            <h3 class="service-title">AI活用・業務代行</h3>
-            <p class="service-text">
-              定期レポート・文書作成・社内展開支援。プロンプト設計で <em>毎月の作業時間</em> を大きく削減します。
-            </p>
+          <article class="audience-card">
+            <span class="audience-tag">バックオフィス担当</span>
+            <h3>同じ作業を毎週繰り返している</h3>
+            <p>スプレッドシート更新、レポート作成、通知作業。GASとAIで仕組み化して時間を取り戻したい。</p>
+          </article>
+          <article class="audience-card">
+            <span class="audience-tag">中小企業・チームリーダー</span>
+            <h3>AIを使いたいが何から始めるか分からない</h3>
+            <p>生成AIを業務にどう組み込むか、FAQ整理、チャットボット、プロンプト整備まで実用優先で支援します。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Strengths -->
-    <section id="strengths" class="section section-alt">
+    <section class="section work-band" id="works">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="section-eyebrow">Strengths</p>
-          <h2 class="section-title">得意分野・強み</h2>
-        </header>
-        <ul class="strengths-list">
-          <li class="strength-item reveal">
-            <span class="strength-num">01</span>
-            <div>
-              <h3>GAS × Claude で自動更新する仕組みを構築</h3>
-              <p>BIダッシュボードを「作って終わり」にせず、データ更新まで全自動化。Claude Code・Cursor・Difyなども実務で活用しています。</p>
-            </div>
-          </li>
-          <li class="strength-item reveal">
-            <span class="strength-num">02</span>
-            <div>
-              <h3>現場と管理、両方の視点で設計できる</h3>
-              <p>会話導線・FAQ整理・運用ルールまで含めて、「使われる」前提で組み立てます。</p>
-            </div>
-          </li>
-          <li class="strength-item reveal">
-            <span class="strength-num">03</span>
-            <div>
-              <h3>FAQを「探す」から「聞けば解決」へ</h3>
-              <p>重複や表現のバラつきを整理し、ユーザーが迷わず自己解決できる導線に整えます。</p>
-            </div>
-          </li>
-          <li class="strength-item reveal">
-            <span class="strength-num">04</span>
-            <div>
-              <h3>導入後の改善まで伴走</h3>
-              <p>公開後のログを見ながら期間型でチューニング。工数削減につながる状態まで育てます。</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Tools -->
-    <section id="tools" class="section">
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="section-eyebrow">Tools</p>
-          <h2 class="section-title">使用できるツール・AI</h2>
-        </header>
-        <div class="tools-grid">
-          <div class="tool-group reveal">
-            <h3>AIチャット・テキスト生成</h3>
-            <ul>
-              <li>ChatGPT (OpenAI)</li>
-              <li>Claude (Anthropic)</li>
-              <li>Gemini (Google)</li>
-            </ul>
+        <div class="section-head align-left">
+          <p class="eyebrow">Works</p>
+          <h2>実際のアウトプットが見えるから、相談しやすい。</h2>
+          <p>業種別のサンプルダッシュボードを用意しています。LP制作のサンプルは、いまご覧いただいているこのページそのものです。自社のデータ・ブランドに置き換えた完成イメージを具体的に確認できます。</p>
+        </div>
+        <div class="work-feature">
+          <figure class="work-main">
+            <img src="assets/images/dashboard-ec.png" alt="EC事業向けの経営ダッシュボードサンプル" />
+          </figure>
+          <div class="work-side">
+            <article>
+              <span>EC</span>
+              <h3>GMV、CVR、LTVを横断して把握</h3>
+              <p>モール別売上、購入ファネル、新規・リピーター比率を一画面に集約。</p>
+            </article>
+            <article>
+              <span>Retail</span>
+              <h3>店舗別の売上と在庫リスクを可視化</h3>
+              <p>売れ筋、在庫切れ、回転率を合わせて見て、発注判断を早くします。</p>
+            </article>
+            <article>
+              <span>Professional</span>
+              <h3>案件進捗と稼働状況を整理</h3>
+              <p>士業・専門サービスの案件管理、売上見込み、担当者別稼働を見える化。</p>
+            </article>
           </div>
-          <div class="tool-group reveal">
-            <h3>自動化・開発ツール</h3>
-            <ul>
-              <li>Google Apps Script</li>
-              <li>Cursor</li>
-              <li>Claude Code</li>
-            </ul>
-          </div>
-          <div class="tool-group reveal">
-            <h3>チャットボット・業務AI</h3>
-            <ul>
-              <li>Dify</li>
-              <li>Make / Zapier</li>
-            </ul>
-          </div>
-          <div class="tool-group reveal">
-            <h3>データ・BI</h3>
-            <ul>
-              <li>Googleスプレッドシート × AI</li>
-              <li>Notionデータベース</li>
-            </ul>
-          </div>
+        </div>
+        <div class="work-gallery" aria-label="ダッシュボードサンプル一覧">
+          <img src="assets/images/dashboard-retail.png" alt="小売店舗向けダッシュボードサンプル" />
+          <img src="assets/images/dashboard-restaurant.png" alt="飲食店向けダッシュボードサンプル" />
+          <img src="assets/images/dashboard-proservices.png" alt="士業事務所向けダッシュボードサンプル" />
         </div>
       </div>
     </section>
 
-    <!-- For You -->
-    <section id="foryou" class="section section-alt">
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="section-eyebrow">For You</p>
-          <h2 class="section-title">こんな方におすすめです</h2>
-          <div class="section-deco" aria-hidden="true">
-            <svg viewBox="0 0 80 24" width="80" height="24" fill="none" stroke="#B8895A" stroke-width="1.5" stroke-linecap="round">
-              <path d="M2 12 L20 12"/>
-              <circle cx="28" cy="12" r="3" fill="#B8895A" stroke="none"/>
-              <path d="M36 12 L44 12"/>
-              <circle cx="50" cy="12" r="2" fill="#B8895A" stroke="none"/>
-              <path d="M56 12 L78 12"/>
-            </svg>
+    <section class="section">
+      <div class="container split-section">
+        <div class="visual-panel" aria-hidden="true">
+          <div class="mini-browser">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            <div class="browser-body">
+              <div class="kpi-row">
+                <strong>¥12,450,000</strong>
+                <strong>78.5%</strong>
+              </div>
+              <div class="chart-bars">
+                <span style="height: 52%"></span>
+                <span style="height: 72%"></span>
+                <span style="height: 46%"></span>
+                <span style="height: 88%"></span>
+                <span style="height: 64%"></span>
+              </div>
+              <div class="line-chart"></div>
+            </div>
           </div>
-        </header>
-        <div class="foryou-list">
-          <div class="foryou-row reveal">
-            <p class="foryou-pain">FAQが増えて探しづらく、問い合わせが減らない</p>
-            <p class="foryou-gain">ユーザーが自己解決でき、対応工数が下がります</p>
-          </div>
-          <div class="foryou-row reveal">
-            <p class="foryou-pain">営業時間・料金など同じ質問への対応を繰り返している</p>
-            <p class="foryou-gain">ボットが24時間応答。スタッフは本来の業務へ</p>
-          </div>
-          <div class="foryou-row reveal">
-            <p class="foryou-pain">社内ルール・マニュアルの問い合わせが担当者に集中</p>
-            <p class="foryou-gain">同じ質問が減り、回答品質も統一されます</p>
-          </div>
-          <div class="foryou-row reveal">
-            <p class="foryou-pain">定期的な資料・報告書・メール対応に時間を取られている</p>
-            <p class="foryou-gain">プロンプト設計で繰り返し業務を大幅に削減</p>
-          </div>
-          <div class="foryou-row reveal">
-            <p class="foryou-pain">AIを導入したいが、社内への展開方法が分からない</p>
-            <p class="foryou-gain">現場と管理の両方の目線で「使われる」設計を支援</p>
-          </div>
+        </div>
+        <div class="text-panel">
+          <p class="eyebrow dark">Before / After</p>
+          <h2>「毎回手作業」から「開けば最新・聞けば返事」へ。</h2>
+          <ul class="check-list">
+            <li>ExcelやCSVを毎月手でまとめている</li>
+            <li>社長、現場、担当者で見たい数字が違う</li>
+            <li>サービス紹介ページがなく、口頭で説明している</li>
+            <li>問い合わせフォームがなく、SNSのDMで対応している</li>
+            <li>AIを使いたいが、業務にどう組み込むか決まっていない</li>
+          </ul>
+          <p>
+            こうした状態を、データの入力・更新・可視化、Web上の見せ方、問い合わせ動線、運用ルールまで含めて整理します。
+            小さく始めて、使いながら育てる進め方も可能です。
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Flow -->
-    <section id="flow" class="section">
+    <section class="section process-band" id="process">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="section-eyebrow">Flow</p>
-          <h2 class="section-title">ご相談〜納品の流れ</h2>
-        </header>
-        <ol class="flow-steps">
-          <li class="flow-step reveal">
-            <div class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="12" width="36" height="26" rx="3"/>
-                <path d="M6 14 L24 28 L42 14"/>
-              </svg>
-            </div>
-            <span class="flow-num">STEP 01</span>
-            <h3>お問い合わせ</h3>
-            <p>フォームまたはX (DM) からお気軽にご連絡ください。</p>
+        <div class="section-head">
+          <p class="eyebrow dark">Process</p>
+          <h2>相談から納品までの流れ</h2>
+        </div>
+        <ol class="process-list">
+          <li>
+            <span>01</span>
+            <h3>ヒアリング</h3>
+            <p>見たい数字、今の管理方法、利用者、希望納期を確認します。チャットでの相談も可能です。</p>
           </li>
-          <li class="flow-step reveal">
-            <div class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="24" cy="24" r="18"/>
-                <path d="M24 14 V24 L31 28"/>
-              </svg>
-            </div>
-            <span class="flow-num">STEP 02</span>
-            <h3>24時間以内に返信</h3>
-            <p>内容を確認後、初回ご返信いたします。</p>
+          <li>
+            <span>02</span>
+            <h3>設計</h3>
+            <p>KPI、画面構成、更新方法を整理し、どのデータをどうつなぐかを決めます。</p>
           </li>
-          <li class="flow-step reveal">
-            <div class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="14" width="26" height="20" rx="3"/>
-                <path d="M32 22 L42 16 V32 L32 26 Z"/>
-              </svg>
-            </div>
-            <span class="flow-num">STEP 03</span>
-            <h3>オンライン面談</h3>
-            <p>30〜60分。現状とゴールをお聞きします。</p>
+          <li>
+            <span>03</span>
+            <h3>構築</h3>
+            <p>Looker Studio、スプレッドシート、GASを組み合わせて、実データで動く状態にします。</p>
           </li>
-          <li class="flow-step reveal">
-            <div class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 6 H30 L38 14 V42 H10 Z"/>
-                <path d="M30 6 V14 H38"/>
-                <path d="M16 24 L22 30 L32 18"/>
-              </svg>
-            </div>
-            <span class="flow-num">STEP 04</span>
-            <h3>具体的なご提案</h3>
-            <p>進め方・スケジュール・費用感をお伝えします。</p>
+          <li>
+            <span>04</span>
+            <h3>納品・改善</h3>
+            <p>操作方法を共有し、修正対応まで実施。必要に応じて月次運用にも切り替えられます。</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section section-contact">
-      <div class="container reveal">
-        <div class="contact-illust" aria-hidden="true">
-          <svg viewBox="0 0 120 80" width="120" height="80" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 50 Q20 30 40 30 L80 30 Q100 30 100 50 L100 65 Q100 78 85 78 L65 78 L55 90 L60 78 Q20 78 20 65 Z"
-                  fill="#FAF6EF" stroke="#B8895A" stroke-width="2"/>
-            <circle cx="48" cy="55" r="3" fill="#B8895A"/>
-            <circle cx="60" cy="55" r="3" fill="#B8895A"/>
-            <circle cx="72" cy="55" r="3" fill="#B8895A"/>
-            <path d="M105 18 L107 24 L113 26 L107 28 L105 34 L103 28 L97 26 L103 24 Z" fill="#B8895A"/>
-            <path d="M15 12 L16.5 16 L21 18 L16.5 20 L15 24 L13.5 20 L9 18 L13.5 16 Z" fill="#7A5230"/>
-          </svg>
+    <section class="section" id="profile">
+      <div class="container profile-grid">
+        <div class="profile-card">
+          <img src="assets/images/avatar.png" alt="Fukumaru_40のアイコン" />
+          <h2>Fukumaru_40</h2>
+          <p>BIダッシュボード制作・GAS自動化・AI業務改善</p>
         </div>
-        <p class="section-eyebrow">Contact</p>
-        <h2 class="contact-title">まずはお気軽にご相談ください。</h2>
-        <p class="contact-lead">
-          「これってAIで効率化できる？」のような小さな相談からでもOKです。<br />
-          24時間以内にご返信いたします。
+        <div class="profile-body">
+          <p class="eyebrow dark">Profile</p>
+          <h2>現場で使われるか、管理側が見続けられるか。両方から設計します。</h2>
+          <p>
+            飲食・小売の現場経験と、教育業界での管理業務経験をもとに、
+            「きれいな画面」だけでなく、更新され続ける運用まで考えた仕組みを作ります。
+          </p>
+          <div class="tag-list">
+            <span>Looker Studio</span>
+            <span>Google Apps Script</span>
+            <span>Google Sheets</span>
+            <span>Excel</span>
+            <span>ChatGPT</span>
+            <span>Claude</span>
+            <span>Gemini</span>
+            <span>Dify</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-band" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow dark">FAQ</p>
+          <h2>よくいただくご質問</h2>
+          <p>「自分のような規模でも相談していいのか」が一番多い質問です。結論、規模を問わずご相談いただけます。</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>個人事業主や小規模でも依頼できますか？</summary>
+            <p>もちろん可能です。むしろ、一人社長・個人事業主・小規模チームを主な対象としています。BI・LP・自動化のいずれも、小さく始めて使いながら育てる進め方ができます。</p>
+          </details>
+          <details class="faq-item">
+            <summary>初回相談は有料ですか？</summary>
+            <p>無料です。お問い合わせフォームまたはXからご連絡ください。現状のデータ・サービス・課題をお伺いして、構成案とおおよそのお見積りをお出しします。</p>
+          </details>
+          <details class="faq-item">
+            <summary>納期はどのくらいですか？</summary>
+            <p>規模によりますが、LPは2〜3週間、BIダッシュボードは3〜4週間、GAS自動化は1〜2週間が目安です。お急ぎの案件はご相談ください。</p>
+          </details>
+          <details class="faq-item">
+            <summary>業界経験のない分野でも対応できますか？</summary>
+            <p>飲食・小売・教育・士業など、これまで複数業界の業務を可視化してきました。初回ヒアリングと既存資料の共有で、業界固有の用語・指標もキャッチアップしてご提案します。</p>
+          </details>
+          <details class="faq-item">
+            <summary>BIとLPとAIをまとめて頼むこともできますか？</summary>
+            <p>はい、組み合わせのご相談を歓迎します。「LPで集めた問い合わせをスプレッドシートに集約し、ダッシュボードで確認、AIが下書き対応」のような一気通貫の設計が得意です。</p>
+          </details>
+          <details class="faq-item">
+            <summary>納品後の修正対応はありますか？</summary>
+            <p>初回納品から2週間の軽微な修正は無料で対応します。継続的な運用・改善が必要な場合は、月額サポートプラン（3〜5万円〜）もご用意しています。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+        <p class="eyebrow">Contact</p>
+        <h2>「うちの場合、何ができますか？」から始めましょう。</h2>
+        <p>
+          BI・LP・GAS・AI、どれか一つでも、組み合わせでも、相談内容が固まっていなくても大丈夫です。
+          現在のデータ・サービス・課題をもとに、どんな形にできるか整理してご提案します。初回ヒアリング無料・全国オンライン対応・24時間以内に初回返信。
         </p>
-        <div class="contact-cta">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" class="btn btn-primary btn-lg" target="_blank" rel="noopener">お問い合わせフォーム</a>
+        <div class="contact-actions">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener">無料で相談する（フォーム）</a>
+          <a href="https://x.com/FUKUMARU_40" class="btn btn-light" target="_blank" rel="noopener">XのDMで相談する</a>
         </div>
-        <div class="contact-sns">
-          <a href="https://x.com/FUKUMARU_40" target="_blank" rel="noopener" aria-label="X (Twitter)">
-            <span class="sns-label">X (Twitter)</span>
-            <span class="sns-handle">@FUKUMARU_40</span>
-          </a>
-          <a href="https://note.com/fukumaru_40" target="_blank" rel="noopener" aria-label="note">
-            <span class="sns-label">note</span>
-            <span class="sns-handle">fukumaru_40</span>
-          </a>
-        </div>
-        <div class="contact-links">
-          <a href="services.html">提供サービス詳細 →</a>
-          <a href="works.html">実績を見る →</a>
-        </div>
+        <ul class="contact-meta" aria-label="ご依頼の前提">
+          <li>初回ヒアリング無料</li>
+          <li>全国オンライン対応</li>
+          <li>24時間以内に初回返信</li>
+          <li>個人・小規模OK</li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="footer-brand">Fukumaru_40</p>
-      <p class="footer-copy">© <span id="year"></span> Fukumaru_40. All rights reserved.</p>
+      <p>Fukumaru_40</p>
+      <small>&copy; <span id="year"></span> Fukumaru_40. All rights reserved.</small>
     </div>
   </footer>
 

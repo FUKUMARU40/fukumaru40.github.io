@@ -1,78 +1,61 @@
 (() => {
-  'use strict';
+  "use strict";
 
-  // JS有効化フラグ（CSS側のreveal初期非表示を有効に）
-  document.documentElement.classList.add('js-on');
-
-  // 年表示
-  const yearEl = document.getElementById('year');
+  const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ヘッダーのスクロール時背景切替
-  const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    if (window.scrollY > 20) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  const header = document.getElementById("siteHeader");
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector(".nav-toggle");
 
-  // モバイルメニュー
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
+  const syncHeader = () => {
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 16);
+  };
+
+  window.addEventListener("scroll", syncHeader, { passive: true });
+  syncHeader();
+
+  if (toggle && nav && header) {
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+      header.classList.toggle("is-open", isOpen);
+      document.body.classList.toggle("nav-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
     });
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        header.classList.remove("is-open");
+        document.body.classList.remove("nav-open");
+        toggle.setAttribute("aria-expanded", "false");
       });
     });
   }
 
-  // スクロール連動フェードイン
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const reveals = Array.from(document.querySelectorAll('.reveal'));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targets = document.querySelectorAll(
+    ".intro-grid, .section-head, .service-card, .audience-card, .work-feature, .work-gallery, .split-section, .process-list li, .faq-item, .profile-grid, .contact-inner"
+  );
 
-  const showAll = () => reveals.forEach(el => el.classList.add('is-visible'));
+  targets.forEach((target) => target.classList.add("reveal"));
 
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    showAll();
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    targets.forEach((target) => target.classList.add("is-visible"));
     return;
   }
 
-  // 現在ビューポート内にある要素を即座に可視化
-  const revealInViewport = () => {
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    reveals.forEach(el => {
-      if (el.classList.contains('is-visible')) return;
-      const r = el.getBoundingClientRect();
-      if (r.top < vh - 40 && r.bottom > 0) {
-        el.classList.add('is-visible');
-      }
-    });
-  };
-
-  // スクロール時に追加表示
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        revealInViewport();
-        ticking = false;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
-      ticking = true;
-    }
-  }, { passive: true });
+    },
+    { threshold: 0.16 }
+  );
 
-  // 初期表示
-  revealInViewport();
-  setTimeout(revealInViewport, 50);
-  setTimeout(revealInViewport, 300);
-
-  // 最終フォールバック（環境によってはIntersectionObserverもscroll検知も使えない場合がある）
-  setTimeout(showAll, 1500);
+  targets.forEach((target) => observer.observe(target));
 })();
