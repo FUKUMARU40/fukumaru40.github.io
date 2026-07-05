@@ -1326,3 +1326,54 @@ a {
     transition: none;
   }
 }
+
+/* Demo links */
+.service-demo-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.service-demo-link:hover {
+  color: var(--blue-strong);
+  text-decoration: underline;
+}
+
+.demo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 8px 0 36px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+}
+
+.demo-banner-copy {
+  flex: 1;
+  min-width: 260px;
+}
+
+.demo-banner-copy strong {
+  display: block;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.demo-banner-copy p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.demo-banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

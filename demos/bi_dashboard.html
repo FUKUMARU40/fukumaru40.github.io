@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIダッシュボード体験デモ｜Fukumaru_40</title>
+<meta name="description" content="実際に操作できるBIダッシュボードのデモ。教室・期間フィルタ、前月比KPI、自動更新まで体験できます。ExcelまたはCSVを1ファイル送るだけで、同等のダッシュボードを制作します。" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#f1f5f9; --card:#ffffff; --ink:#1e293b; --sub:#64748b; --line:#e2e8f0;
+  --accent:#2d6a4f; --accent2:#3b82f6; --up:#16a34a; --down:#dc2626;
+}
+body { font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; background:var(--bg); color:var(--ink); }
+
+.topbar { background:#0f172a; color:#fff; padding:14px 24px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.topbar .back { font-size:12px; color:#94a3b8; text-decoration:none; }
+.topbar .back:hover { color:#60a5fa; }
+.topbar h1 { font-size:17px; font-weight:700; }
+.badge { background:rgba(59,130,246,0.2); border:1px solid rgba(59,130,246,0.5); color:#93c5fd; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px; }
+.topbar .updated { margin-left:auto; font-size:11px; color:#94a3b8; }
+
+.demo-note { background:#fffbeb; border-bottom:1px solid #fde68a; color:#92400e; font-size:12px; padding:8px 24px; line-height:1.6; }
+
+.wrap { max-width:1100px; margin:0 auto; padding:20px 16px 40px; }
+
+.filters { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; align-items:center; }
+.filters label { font-size:12px; color:var(--sub); font-weight:600; }
+.filters select { font-size:13px; padding:7px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink); cursor:pointer; }
+.filters button { font-size:12px; padding:7px 14px; border:none; border-radius:8px; background:var(--accent2); color:#fff; font-weight:600; cursor:pointer; }
+.filters button:hover { opacity:0.9; }
+
+.kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+.kpi { background:var(--card); border-radius:12px; padding:16px 18px; border:1px solid var(--line); box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+.kpi .t { font-size:12px; color:var(--sub); margin-bottom:6px; }
+.kpi .v { font-size:26px; font-weight:800; letter-spacing:0.02em; }
+.kpi .d { font-size:11px; margin-top:4px; font-weight:600; }
+.kpi .d.up { color:var(--up); } .kpi .d.down { color:var(--down); }
+
+.grid { display:grid; grid-template-columns:1.4fr 1fr; gap:12px; }
+.card { background:var(--card); border-radius:12px; padding:16px 18px; border:1px solid var(--line); box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+.card h3 { font-size:13px; font-weight:700; color:#475569; margin-bottom:10px; }
+.chart-wrap { position:relative; height:260px; }
+
+.cta { margin-top:24px; background:linear-gradient(135deg,#0f172a,#1e3a5f); border-radius:14px; padding:26px 28px; color:#fff; }
+.cta b { display:block; font-size:17px; margin-bottom:8px; }
+.cta p { font-size:12.5px; color:#cbd5e1; line-height:1.8; margin-bottom:16px; }
+.cta .actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.cta a { text-decoration:none; font-size:13.5px; font-weight:700; padding:12px 22px; border-radius:10px; }
+.cta a.coconala { background:#f59e0b; color:#1e293b; }
+.cta a.coconala:hover { background:#fbbf24; }
+.cta a.form { background:#3b82f6; color:#fff; }
+.cta a.form:hover { background:#2563eb; }
+.cta a.ghost { color:#cbd5e1; border:1px solid #475569; }
+.cta a.ghost:hover { border-color:#94a3b8; color:#fff; }
+.cta .brand { margin-left:auto; font-size:12px; color:#94a3b8; }
+
+@media (max-width:800px) {
+  .kpis { grid-template-columns:repeat(2,1fr); }
+  .grid { grid-template-columns:1fr; }
+  .chart-wrap { height:220px; }
+  .cta .brand { margin-left:0; width:100%; text-align:right; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="./">← デモ一覧</a>
+  <h1>📊 スクール運営ダッシュボード</h1>
+  <span class="badge">体験デモ</span>
+  <span class="updated" id="updated"></span>
+</div>
+<div class="demo-note">
+  ▼ これは<b>実際に操作できるデモ</b>です。教室や期間を切り替えると、すべてのグラフと数値が連動して変わります。実案件ではお客様のExcel／スプレッドシートのデータが毎朝自動で反映されます（データはすべて架空のサンプルです）。
+</div>
+
+<div class="wrap">
+
+  <div class="filters">
+    <label>教室：</label>
+    <select id="fClassroom">
+      <option value="all">全教室</option>
+    </select>
+    <label>期間：</label>
+    <select id="fPeriod">
+      <option value="6">直近6ヶ月</option>
+      <option value="12" selected>直近12ヶ月</option>
+    </select>
+    <button id="btnRefresh">🔄 最新データを取り込む（自動更新の体験）</button>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="t">在籍生徒数</div><div class="v" id="kEnrolled">-</div><div class="d" id="kEnrolledD"></div></div>
+    <div class="kpi"><div class="t">今月の入会</div><div class="v" id="kJoin">-</div><div class="d" id="kJoinD"></div></div>
+    <div class="kpi"><div class="t">今月の退会</div><div class="v" id="kLeave">-</div><div class="d" id="kLeaveD"></div></div>
+    <div class="kpi"><div class="t">月謝売上（月間）</div><div class="v" id="kRevenue">-</div><div class="d" id="kRevenueD"></div></div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>入会・退会数の推移</h3>
+      <div class="chart-wrap"><canvas id="cTrend"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>コース別在籍数</h3>
+      <div class="chart-wrap"><canvas id="cCourse"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>教室別在籍数ランキング</h3>
+      <div class="chart-wrap"><canvas id="cRanking"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>学年別分布</h3>
+      <div class="chart-wrap"><canvas id="cGrade"></canvas></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <b>このダッシュボード、あなたのExcelで作ります。</b>
+    <p>普段お使いのExcelまたはCSVを1ファイルお送りいただくだけ。KPIカード＋グラフ構成のHTMLダッシュボードを5日以内に初稿納品します（5,000円〜）。GASによる毎朝の自動更新、複数ファイルの統合などの拡張もご相談ください。</p>
+    <div class="actions">
+      <a class="coconala" href="https://coconala.com/services/4266599" target="_blank" rel="noopener">ココナラで依頼する（5,000円〜）</a>
+      <a class="form" href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" target="_blank" rel="noopener">無料で相談する（フォーム）</a>
+      <a class="ghost" href="../services/#packages">料金・サービス詳細</a>
+      <span class="brand">GAS × AI ｜ Fukumaru_40</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ====== サンプルデータ生成（決定的：毎回同じ見た目になる） ======
+const CLASSROOMS = ['駅前校','中央校','南口校','公園通り校','ニュータウン校'];
+const COURSES = ['英会話(週1)','英会話(週2)','プログラミング','そろばん','速読'];
+const GRADES = ['年少・年中','年長','小1-2','小3-4','小5-6','中学生'];
+const AVG_FEE = 9800; // 平均月謝
+
+function seeded(i, j, base, amp) {
+  // 疑似ランダム（sin ベース）で毎回同じサンプル値を返す
+  return Math.round(base + amp * Math.sin(i * 2.3 + j * 1.7) + amp * 0.5 * Math.cos(i * 0.9 - j));
+}
+
+function monthLabels(n) {
+  const out = [], now = new Date();
+  for (let k = n - 1; k >= 0; k--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - k, 1);
+    out.push(`${d.getFullYear()}/${d.getMonth() + 1}`);
+  }
+  return out;
+}
+
+// 教室ごと・月ごとの入会/退会/在籍データを構築
+function buildData(months) {
+  const data = CLASSROOMS.map((name, ci) => {
+    let enrolled = 120 + ci * 25;
+    const rows = [];
+    for (let m = 0; m < months; m++) {
+      const join = Math.max(2, seeded(m, ci, 9 + ci, 4) + (m % 12 === 2 ? 6 : 0)); // 3月は入会増
+      const leave = Math.max(1, seeded(m, ci + 7, 6, 3));
+      enrolled += join - leave;
+      rows.push({ join, leave, enrolled });
+    }
+    return { name, rows };
+  });
+  return data;
+}
+
+const MAX_MONTHS = 12;
+let allData = buildData(MAX_MONTHS);
+let labels = monthLabels(MAX_MONTHS);
+let refreshCount = 0;
+
+const $ = id => document.getElementById(id);
+CLASSROOMS.forEach((c, i) => {
+  const o = document.createElement('option');
+  o.value = i; o.textContent = c;
+  $('fClassroom').appendChild(o);
+});
+
+function currentSelection() {
+  const cls = $('fClassroom').value;
+  const period = parseInt($('fPeriod').value, 10);
+  const idxFrom = MAX_MONTHS - period;
+  const rooms = cls === 'all' ? allData : [allData[parseInt(cls, 10)]];
+  return { rooms, idxFrom, period };
+}
+
+function sumAt(rooms, idx, key) {
+  return rooms.reduce((s, r) => s + r.rows[idx][key], 0);
+}
+
+// ====== KPI ======
+function renderKPIs() {
+  const { rooms } = currentSelection();
+  const last = MAX_MONTHS - 1, prev = MAX_MONTHS - 2;
+  const enrolled = sumAt(rooms, last, 'enrolled');
+  const join = sumAt(rooms, last, 'join');
+  const leave = sumAt(rooms, last, 'leave');
+  const revenue = enrolled * AVG_FEE;
+
+  const dEnrolled = enrolled - sumAt(rooms, prev, 'enrolled');
+  const dJoin = join - sumAt(rooms, prev, 'join');
+  const dLeave = leave - sumAt(rooms, prev, 'leave');
+
+  $('kEnrolled').textContent = enrolled.toLocaleString() + ' 名';
+  $('kJoin').textContent = join + ' 名';
+  $('kLeave').textContent = leave + ' 名';
+  $('kRevenue').textContent = '¥' + revenue.toLocaleString();
+
+  setDelta('kEnrolledD', dEnrolled, '名');
+  setDelta('kJoinD', dJoin, '名');
+  setDelta('kLeaveD', dLeave, '名', true); // 退会は減が良い
+  setDelta('kRevenueD', dEnrolled * AVG_FEE, '円');
+}
+
+function setDelta(id, v, unit, invert) {
+  const el = $(id);
+  const good = invert ? v <= 0 : v >= 0;
+  el.className = 'd ' + (good ? 'up' : 'down');
+  el.textContent = (v >= 0 ? '▲ +' : '▼ ') + v.toLocaleString() + unit + '（前月比）';
+}
+
+// ====== Charts ======
+Chart.defaults.font.family = "'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#64748b';
+
+const charts = {};
+
+function renderTrend() {
+  const { rooms, idxFrom, period } = currentSelection();
+  const lb = labels.slice(idxFrom);
+  const joins = [], leaves = [];
+  for (let m = idxFrom; m < MAX_MONTHS; m++) {
+    joins.push(sumAt(rooms, m, 'join'));
+    leaves.push(sumAt(rooms, m, 'leave'));
+  }
+  const cfg = {
+    type: 'line',
+    data: { labels: lb, datasets: [
+      { label:'入会', data:joins, borderColor:'#2d6a4f', backgroundColor:'rgba(45,106,79,0.1)', fill:true, tension:0.35, pointRadius:3 },
+      { label:'退会', data:leaves, borderColor:'#dc2626', backgroundColor:'rgba(220,38,38,0.06)', fill:true, tension:0.35, pointRadius:3 },
+    ]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ position:'top', labels:{ boxWidth:12 } } },
+      scales:{ y:{ beginAtZero:true, grid:{ color:'#f1f5f9' } }, x:{ grid:{ display:false } } } }
+  };
+  upsert('cTrend', cfg);
+}
+
+function renderCourse() {
+  const { rooms } = currentSelection();
+  const total = sumAt(rooms, MAX_MONTHS - 1, 'enrolled');
+  const weights = [0.34, 0.22, 0.20, 0.14, 0.10];
+  const values = weights.map(w => Math.round(total * w));
+  upsert('cCourse', {
+    type: 'doughnut',
+    data: { labels: COURSES, datasets: [{ data: values,
+      backgroundColor: ['#2d6a4f','#40916c','#3b82f6','#f59e0b','#a855f7'], borderWidth:2, borderColor:'#fff' }]},
+    options: { responsive:true, maintainAspectRatio:false, cutout:'55%',
+      plugins:{ legend:{ position:'right', labels:{ boxWidth:12 } } } }
+  });
+}
+
+function renderRanking() {
+  const sorted = [...allData]
+    .map(r => ({ name:r.name, v:r.rows[MAX_MONTHS - 1].enrolled }))
+    .sort((a, b) => b.v - a.v);
+  const sel = $('fClassroom').value;
+  const selName = sel === 'all' ? null : CLASSROOMS[parseInt(sel, 10)];
+  upsert('cRanking', {
+    type: 'bar',
+    data: { labels: sorted.map(r => r.name), datasets: [{ label:'在籍数',
+      data: sorted.map(r => r.v),
+      backgroundColor: sorted.map(r => r.name === selName ? '#f59e0b' : '#2d6a4f'),
+      borderRadius:4 }]},
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ display:false } },
+      scales:{ x:{ beginAtZero:true, grid:{ color:'#f1f5f9' } }, y:{ grid:{ display:false } } } }
+  });
+}
+
+function renderGrade() {
+  const { rooms } = currentSelection();
+  const total = sumAt(rooms, MAX_MONTHS - 1, 'enrolled');
+  const weights = [0.08, 0.12, 0.24, 0.26, 0.20, 0.10];
+  upsert('cGrade', {
+    type: 'bar',
+    data: { labels: GRADES, datasets: [{ label:'在籍数',
+      data: weights.map(w => Math.round(total * w)),
+      backgroundColor:'#3b82f6', borderRadius:4 }]},
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ display:false } },
+      scales:{ y:{ beginAtZero:true, grid:{ color:'#f1f5f9' } }, x:{ grid:{ display:false } } } }
+  });
+}
+
+function upsert(id, cfg) {
+  if (charts[id]) { charts[id].destroy(); }
+  charts[id] = new Chart($(id).getContext('2d'), cfg);
+}
+
+function renderAll() {
+  renderKPIs(); renderTrend(); renderCourse(); renderRanking(); renderGrade();
+}
+
+// ====== 自動更新の体験ボタン：翌月分のデータが増える ======
+$('btnRefresh').addEventListener('click', () => {
+  refreshCount++;
+  allData.forEach((room, ci) => {
+    const lastEnrolled = room.rows[room.rows.length - 1].enrolled;
+    const join = Math.max(2, seeded(MAX_MONTHS + refreshCount, ci, 10, 4));
+    const leave = Math.max(1, seeded(MAX_MONTHS + refreshCount, ci + 7, 6, 3));
+    room.rows.push({ join, leave, enrolled: lastEnrolled + join - leave });
+    room.rows.shift();
+  });
+  const lastLabel = labels[labels.length - 1];
+  let [y, m] = lastLabel.split('/').map(Number);
+  m++; if (m > 12) { m = 1; y++; }
+  labels.push(`${y}/${m}`); labels.shift();
+  stampUpdated();
+  renderAll();
+  const btn = $('btnRefresh');
+  btn.textContent = '✅ ' + `${y}/${m}月分を自動反映しました`;
+  setTimeout(() => { btn.textContent = '🔄 最新データを取り込む（自動更新の体験）'; }, 2200);
+});
+
+function stampUpdated() {
+  const d = new Date();
+  $('updated').textContent = `最終更新：${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}（自動）`;
+}
+
+$('fClassroom').addEventListener('change', renderAll);
+$('fPeriod').addEventListener('change', renderAll);
+
+stampUpdated();
+renderAll();
+</script>
+</body>
+</html>

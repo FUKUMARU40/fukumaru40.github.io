@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIチャットボット体験デモ｜Fukumaru_40</title>
+<meta name="description" content="実際に会話できるFAQチャットボットのデモ。スクール・美容室・ネットショップの3業種を切り替えて体験できます。QAはスプレッドシート管理で、納品後もご自身で更新できます。" />
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { --ink:#1e293b; --sub:#64748b; --line:#e2e8f0; --blue:#3b82f6; --navy:#0f172a; }
+body { font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; background:#eef2f7; color:var(--ink); }
+
+.topbar { background:var(--navy); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.topbar .back { font-size:12px; color:#94a3b8; text-decoration:none; }
+.topbar .back:hover { color:#60a5fa; }
+.topbar h1 { font-size:17px; font-weight:700; }
+.badge { background:rgba(59,130,246,0.2); border:1px solid rgba(59,130,246,0.5); color:#93c5fd; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px; }
+.demo-note { background:#fffbeb; border-bottom:1px solid #fde68a; color:#92400e; font-size:12px; padding:8px 24px; line-height:1.6; }
+
+.wrap { max-width:1000px; margin:0 auto; padding:20px 16px 40px; display:flex; gap:16px; align-items:flex-start; }
+
+/* 業種タブ */
+.scenario-tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.scenario-tabs button { font-size:13px; font-weight:600; padding:8px 16px; border-radius:20px; border:1px solid var(--line); background:#fff; color:var(--sub); cursor:pointer; }
+.scenario-tabs button.active { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+/* チャット本体 */
+.chat-col { flex:1; min-width:0; }
+.chat { background:#fff; border-radius:16px; border:1px solid var(--line); box-shadow:0 4px 16px rgba(15,23,42,0.08); overflow:hidden; display:flex; flex-direction:column; height:560px; }
+.chat-head { background:linear-gradient(135deg,#1e3a5f,#0f172a); color:#fff; padding:14px 18px; display:flex; align-items:center; gap:10px; }
+.chat-head .avatar { width:36px; height:36px; border-radius:50%; background:rgba(59,130,246,0.3); display:flex; align-items:center; justify-content:center; font-size:18px; }
+.chat-head .name { font-size:14px; font-weight:700; }
+.chat-head .status { font-size:11px; color:#86efac; }
+.chat-head .reset { margin-left:auto; font-size:11px; background:rgba(255,255,255,0.12); color:#cbd5e1; border:none; padding:5px 10px; border-radius:8px; cursor:pointer; }
+
+.chat-body { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:#f8fafc; }
+.msg { max-width:80%; padding:10px 14px; border-radius:14px; font-size:13.5px; line-height:1.7; white-space:pre-line; animation:pop .18s ease-out; }
+@keyframes pop { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+.msg.bot { background:#fff; border:1px solid var(--line); border-bottom-left-radius:4px; align-self:flex-start; }
+.msg.user { background:var(--blue); color:#fff; border-bottom-right-radius:4px; align-self:flex-end; }
+.typing { align-self:flex-start; background:#fff; border:1px solid var(--line); border-radius:14px; border-bottom-left-radius:4px; padding:12px 16px; display:flex; gap:4px; }
+.typing i { width:6px; height:6px; border-radius:50%; background:#94a3b8; animation:blink 1.2s infinite; }
+.typing i:nth-child(2){ animation-delay:.2s; } .typing i:nth-child(3){ animation-delay:.4s; }
+@keyframes blink { 0%,80%,100%{ opacity:.25; } 40%{ opacity:1; } }
+
+.chips { display:flex; flex-wrap:wrap; gap:6px; align-self:flex-start; max-width:90%; }
+.chips button { font-size:12px; padding:6px 12px; border-radius:16px; border:1px solid var(--blue); background:#fff; color:var(--blue); cursor:pointer; }
+.chips button:hover { background:#eff6ff; }
+
+.chat-input { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); background:#fff; }
+.chat-input input { flex:1; font-size:13.5px; padding:10px 14px; border:1px solid var(--line); border-radius:24px; outline:none; }
+.chat-input input:focus { border-color:var(--blue); }
+.chat-input button { background:var(--blue); color:#fff; border:none; border-radius:24px; padding:0 18px; font-size:13px; font-weight:600; cursor:pointer; }
+
+/* 仕組みパネル */
+.side { width:300px; flex-shrink:0; display:flex; flex-direction:column; gap:12px; }
+.side .card { background:#fff; border-radius:12px; border:1px solid var(--line); padding:16px 18px; }
+.side h3 { font-size:13px; font-weight:700; color:#475569; margin-bottom:10px; }
+.side ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.side li { font-size:12px; color:var(--sub); line-height:1.6; display:flex; gap:8px; }
+.side li .ico { flex-shrink:0; }
+.qa-table { width:100%; border-collapse:collapse; font-size:10.5px; }
+.qa-table th { background:#f1f5f9; color:#475569; padding:5px 7px; text-align:left; border:1px solid var(--line); }
+.qa-table td { padding:5px 7px; border:1px solid var(--line); color:var(--sub); }
+.side .note { font-size:10.5px; color:#94a3b8; margin-top:8px; line-height:1.5; }
+.cta-card { background:linear-gradient(135deg,#0f172a,#1e3a5f) !important; border:none !important; color:#fff; }
+.cta-card b { display:block; font-size:13.5px; margin-bottom:6px; }
+.cta-card p { font-size:11.5px; color:#cbd5e1; line-height:1.7; margin-bottom:12px; }
+.cta-card a { display:block; text-align:center; text-decoration:none; font-size:12.5px; font-weight:700; padding:11px; border-radius:8px; margin-bottom:8px; }
+.cta-card a.form { background:#3b82f6; color:#fff; }
+.cta-card a.form:hover { background:#2563eb; }
+.cta-card a.ghost { color:#cbd5e1; border:1px solid #475569; }
+.cta-card a.ghost:hover { border-color:#94a3b8; color:#fff; }
+.cta-card .brand { font-size:11px; color:#94a3b8; text-align:right; }
+
+@media (max-width:820px) {
+  .wrap { flex-direction:column; }
+  .side { width:100%; }
+  .chat { height:480px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="./">← デモ一覧</a>
+  <h1>💬 AIチャットボット</h1>
+  <span class="badge">体験デモ</span>
+</div>
+<div class="demo-note">
+  ▼ これは<b>実際に会話できるデモ</b>です。下のボタンを押すか、自由に文章を入力してみてください。業種タブを切り替えると、あなたのお店に近いパターンを体験できます（回答内容はすべて架空のサンプルです）。
+</div>
+
+<div class="wrap">
+
+  <div class="chat-col">
+    <div class="scenario-tabs" id="tabs"></div>
+    <div class="chat">
+      <div class="chat-head">
+        <div class="avatar" id="botAvatar">🤖</div>
+        <div>
+          <div class="name" id="botName">-</div>
+          <div class="status">● オンライン（24時間自動対応）</div>
+        </div>
+        <button class="reset" id="btnReset">↺ 会話をリセット</button>
+      </div>
+      <div class="chat-body" id="chatBody"></div>
+      <div class="chat-input">
+        <input id="input" type="text" placeholder="質問を入力…（例：料金はいくら？）" autocomplete="off">
+        <button id="btnSend">送信</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="card">
+      <h3>🛠 このボットの仕組み</h3>
+      <ul>
+        <li><span class="ico">📋</span>QAはスプレッドシートで管理。<b>お客様自身で追加・修正OK</b>（専門知識不要）</li>
+        <li><span class="ico">🌐</span>Webサイト埋め込み・LINE公式アカウントのどちらにも対応</li>
+        <li><span class="ico">🌙</span>24時間365日、営業時間外の問い合わせを自動回答</li>
+        <li><span class="ico">🙋</span>答えられない質問は自動でスタッフへの連絡に切り替え</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📋 QA管理イメージ（スプレッドシート）</h3>
+      <table class="qa-table" id="qaTable"></table>
+      <div class="note">※ この表に行を足すだけでボットの回答が増えます。納品後の運用もかんたんです。</div>
+    </div>
+    <div class="card cta-card">
+      <b>お店の「よくある質問」、ボットに任せませんか？</b>
+      <p>電話・DM対応の時間を減らし、営業時間外の機会損失をゼロに。QAシートの作成からLINE/Web設置まで一括対応します（構築 ¥30,000〜）。</p>
+      <a class="form" href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" target="_blank" rel="noopener">無料で相談する（フォーム）</a>
+      <a class="ghost" href="../services/#packages">料金・サービス詳細を見る</a>
+      <div class="brand">GAS × AI ｜ Fukumaru_40</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ====== 業種別シナリオ定義 ======
+const SCENARIOS = {
+  school: {
+    label: '🏫 スクール・教室',
+    botName: 'みらい英会話スクール 受付ボット',
+    avatar: '🏫',
+    greeting: 'こんにちは！みらい英会話スクールの自動受付です😊\n体験レッスンのご予約や、料金・コースのご質問にお答えします。\n下のボタンからもお選びいただけます。',
+    chips: ['体験レッスンを予約したい','料金を知りたい','コースの種類は？','営業時間・アクセス'],
+    faqs: [
+      { keys:['体験','見学','予約'], a:'体験レッスンは無料です！🎉\n\n【空き状況】\n・火曜 17:00〜\n・木曜 16:00〜\n・土曜 10:00〜 / 14:00〜\n\nご希望の曜日を入力いただくか、お電話（00-0000-0000）でもご予約いただけます。' },
+      { keys:['料金','月謝','費用','いくら','価格'], a:'料金プランのご案内です💰\n\n・週1回コース：月謝 8,800円\n・週2回コース：月謝 14,300円\n・入会金：11,000円（体験当日入会で無料！）\n\n教材費は年間6,600円です。' },
+      { keys:['コース','クラス','種類','レベル'], a:'年齢・レベル別に5つのコースをご用意しています📚\n\n・幼児コース（年少〜年長）\n・小学生コース（低学年／高学年）\n・中学生コース\n・英検対策コース\n\nレベルチェックは体験レッスン時に無料で行います。' },
+      { keys:['営業','時間','アクセス','場所','住所','駐車'], a:'【開講時間】\n火〜金：15:00〜21:00\n土：10:00〜18:00（日月休み）\n\n【アクセス】\n〇〇駅 北口より徒歩3分\n駐車場3台完備です🚗' },
+      { keys:['振替','休んだ','欠席'], a:'欠席時は月2回まで無料で振替できます。\n専用アプリから前日までにお手続きください📱' },
+    ],
+  },
+  salon: {
+    label: '💇 美容室・サロン',
+    botName: 'hair salon Luce 予約ボット',
+    avatar: '💇',
+    greeting: 'こんにちは！hair salon Luce の自動受付です✨\nご予約の空き確認、メニューや料金のご案内ができます。',
+    chips: ['今週の空きを見たい','メニューと料金','初めてなんですが…','キャンセルしたい'],
+    faqs: [
+      { keys:['空き','予約','今週','いつ'], a:'直近の空き状況です📅\n\n・金曜 11:00 / 15:30\n・土曜 10:00 / 17:00\n・日曜 13:00\n\nご希望の日時と メニューを入力いただければ仮予約を承ります。' },
+      { keys:['メニュー','料金','いくら','カット','カラー','パーマ'], a:'主なメニューです💰\n\n・カット：4,950円\n・カット＋カラー：11,000円〜\n・カット＋パーマ：12,100円〜\n・トリートメント：+3,300円\n\n学生は全メニュー20%OFFです🎓' },
+      { keys:['初めて','はじめて','初回'], a:'ご新規さま歓迎です！✨\n初回はカウンセリングを丁寧に行うため、通常より15分ほど長めにお時間をいただいています。\n\n初回限定：カット＋カラー 20%OFFクーポンあり🎁' },
+      { keys:['キャンセル','変更','リスケ'], a:'ご予約の変更・キャンセルは前日20時まで無料です。\nご予約時のお名前と日時を入力してください。スタッフが確認して折り返しご連絡します🙇' },
+      { keys:['営業','時間','定休','アクセス'], a:'【営業時間】10:00〜20:00（火曜定休）\n【アクセス】〇〇駅 東口より徒歩5分です。' },
+    ],
+  },
+  shop: {
+    label: '🛒 ネットショップ',
+    botName: 'Fukumaru STORE サポートボット',
+    avatar: '🛒',
+    greeting: 'お問い合わせありがとうございます！Fukumaru STORE カスタマーサポートです📦\n配送状況・返品・支払い方法など、お気軽にご質問ください。',
+    chips: ['注文した商品はいつ届く？','返品・交換したい','支払い方法は？','送料について'],
+    faqs: [
+      { keys:['いつ届く','配送','発送','届か','追跡'], a:'ご注文から通常2〜4営業日でお届けしています🚚\n\n発送完了時にメールで追跡番号をお送りしています。「注文番号」を入力いただければ、担当者が至急お調べします。' },
+      { keys:['返品','交換','不良','サイズ'], a:'商品到着後7日以内であれば返品・交換を承ります🔄\n\n・未使用/タグ付きが条件です\n・不良品は送料当店負担で交換します\n\n注文番号とご希望（返品/交換）を入力してください。' },
+      { keys:['支払','決済','クレジット','コンビニ','代引'], a:'お支払いは以下からお選びいただけます💳\n\n・クレジットカード（VISA/Master/JCB/AMEX）\n・コンビニ払い（手数料220円）\n・代金引換（手数料330円）\n・PayPay / 楽天ペイ' },
+      { keys:['送料','無料'], a:'送料は全国一律550円です📦\n5,500円以上のご購入で送料無料になります！' },
+      { keys:['営業','問い合わせ','電話','人間','オペレータ'], a:'有人サポートの受付は平日10:00〜17:00です。\nこのチャットは24時間いつでもご質問を受け付けています🌙' },
+    ],
+  },
+};
+
+const FALLBACK = 'ご質問ありがとうございます🙇\n申し訳ありません、その内容は自動回答の登録外でした。\n\n▶ 実際の導入時は、ここで【スタッフへ引き継ぎ】【問い合わせフォームへ誘導】など、お店に合わせた動きを設定できます。\n\nよろしければ下のボタンの内容もお試しください！';
+
+let current = 'school';
+const $ = id => document.getElementById(id);
+const body = $('chatBody');
+
+// ====== タブ生成 ======
+Object.entries(SCENARIOS).forEach(([key, sc]) => {
+  const b = document.createElement('button');
+  b.textContent = sc.label;
+  b.dataset.key = key;
+  b.addEventListener('click', () => switchScenario(key));
+  $('tabs').appendChild(b);
+});
+
+function switchScenario(key) {
+  current = key;
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('active', b.dataset.key === key));
+  const sc = SCENARIOS[key];
+  $('botName').textContent = sc.botName;
+  $('botAvatar').textContent = sc.avatar;
+  renderQaTable(sc);
+  body.innerHTML = '';
+  botSay(sc.greeting, true);
+}
+
+function renderQaTable(sc) {
+  const rows = sc.faqs.slice(0, 4).map(f =>
+    `<tr><td>${f.keys.slice(0,3).join('、')}</td><td>${f.a.split('\n')[0].slice(0, 18)}…</td></tr>`).join('');
+  $('qaTable').innerHTML = '<tr><th>キーワード</th><th>回答文</th></tr>' + rows;
+}
+
+// ====== メッセージ描画 ======
+function addMsg(text, who) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + who;
+  div.textContent = text;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function addChips() {
+  const old = body.querySelector('.chips');
+  if (old) old.remove();
+  const wrap = document.createElement('div');
+  wrap.className = 'chips';
+  SCENARIOS[current].chips.forEach(c => {
+    const b = document.createElement('button');
+    b.textContent = c;
+    b.addEventListener('click', () => send(c));
+    wrap.appendChild(b);
+  });
+  body.appendChild(wrap);
+  body.scrollTop = body.scrollHeight;
+}
+
+function botSay(text, withChips) {
+  const t = document.createElement('div');
+  t.className = 'typing';
+  t.innerHTML = '<i></i><i></i><i></i>';
+  body.appendChild(t);
+  body.scrollTop = body.scrollHeight;
+  setTimeout(() => {
+    t.remove();
+    addMsg(text, 'bot');
+    if (withChips) addChips();
+  }, 600 + Math.random() * 500);
+}
+
+function answer(q) {
+  const sc = SCENARIOS[current];
+  const hit = sc.faqs.find(f => f.keys.some(k => q.includes(k)));
+  return hit ? hit.a : FALLBACK;
+}
+
+function send(text) {
+  const q = (text !== undefined ? text : $('input').value).trim();
+  if (!q) return;
+  $('input').value = '';
+  const chips = body.querySelector('.chips');
+  if (chips) chips.remove();
+  addMsg(q, 'user');
+  botSay(answer(q), true);
+}
+
+$('btnSend').addEventListener('click', () => send());
+$('input').addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+$('btnReset').addEventListener('click', () => switchScenario(current));
+
+switchScenario('school');
+</script>
+</body>
+</html>

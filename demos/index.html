@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>触って体験できるデモ｜Fukumaru_40</title>
+<meta name="description" content="BIダッシュボードとFAQチャットボットを、画像ではなく実際に操作して体験できます。納品物と同等のデモを公開中。" />
+<meta property="og:title" content="納品物を、先に触ってください。｜Fukumaru_40" />
+<meta property="og:description" content="BIダッシュボードとFAQチャットボットの体験デモ。ブラウザだけで動きます。スマホからでもどうぞ。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fukumaru40.github.io/demos/" />
+<meta property="og:image" content="https://fukumaru40.github.io/services/assets/images/avatar.png" />
+<meta name="twitter:card" content="summary" />
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; background:#0f172a; color:#e2e8f0; min-height:100vh; }
+.sitenav { display:flex; gap:18px; align-items:center; padding:14px 24px; background:rgba(15,23,42,0.9); border-bottom:1px solid #1e293b; font-size:12.5px; }
+.sitenav a { color:#94a3b8; text-decoration:none; }
+.sitenav a:hover { color:#60a5fa; }
+.sitenav .home { color:#e2e8f0; font-weight:700; }
+.hero { text-align:center; padding:56px 20px 36px; background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0f172a 100%); }
+.hero .badge { display:inline-block; background:rgba(59,130,246,0.18); border:1px solid rgba(59,130,246,0.4); color:#93c5fd; font-size:12px; font-weight:600; padding:5px 16px; border-radius:20px; letter-spacing:0.08em; margin-bottom:18px; }
+.hero h1 { font-size:clamp(26px,5vw,40px); font-weight:900; line-height:1.3; color:#fff; }
+.hero h1 span { color:#60a5fa; }
+.hero p { margin-top:14px; font-size:14px; color:#94a3b8; line-height:1.8; }
+
+.cards { max-width:900px; margin:0 auto; padding:28px 20px 20px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media (max-width:720px){ .cards { grid-template-columns:1fr; } }
+.card { background:#1e293b; border:1px solid #334155; border-radius:16px; padding:26px; display:flex; flex-direction:column; gap:12px; transition:transform .15s, border-color .15s; }
+.card:hover { transform:translateY(-3px); border-color:#3b82f6; }
+.card .ico { font-size:38px; }
+.card h2 { font-size:19px; color:#fff; }
+.card p { font-size:13px; color:#94a3b8; line-height:1.8; flex:1; }
+.card ul { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:4px; }
+.card li { font-size:12px; color:#cbd5e1; }
+.card li::before { content:'✓ '; color:#4ade80; font-weight:700; }
+.card a.go { display:block; text-align:center; background:#3b82f6; color:#fff; text-decoration:none; font-size:14px; font-weight:700; padding:13px; border-radius:10px; }
+.card a.go:hover { background:#2563eb; }
+.card .tag { align-self:flex-start; font-size:10.5px; font-weight:700; color:#4ade80; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); padding:3px 10px; border-radius:12px; }
+
+.about { max-width:900px; margin:0 auto; padding:8px 20px 24px; }
+.about .box { background:#1e293b; border:1px solid #334155; border-radius:16px; padding:24px 26px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.about .txt { flex:1; min-width:240px; }
+.about b { color:#fff; font-size:15px; display:block; margin-bottom:6px; }
+.about p { font-size:12.5px; color:#94a3b8; line-height:1.8; }
+.about .stats { display:flex; gap:14px; }
+.stat { text-align:center; background:#0f172a; border-radius:12px; padding:14px 18px; }
+.stat .n { font-size:20px; font-weight:800; color:#60a5fa; }
+.stat .l { font-size:10.5px; color:#64748b; margin-top:2px; }
+
+.cta-band { max-width:900px; margin:0 auto; padding:0 20px 40px; text-align:center; }
+.cta-band .actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.cta-band a { text-decoration:none; font-size:14px; font-weight:700; padding:13px 26px; border-radius:10px; }
+.cta-band a.primary { background:#3b82f6; color:#fff; }
+.cta-band a.primary:hover { background:#2563eb; }
+.cta-band a.light { background:transparent; color:#cbd5e1; border:1px solid #475569; }
+.cta-band a.light:hover { border-color:#94a3b8; color:#fff; }
+.foot { text-align:center; font-size:11px; color:#475569; padding:0 20px 30px; }
+.foot a { color:#64748b; }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <a class="home" href="../">Fukumaru_40</a>
+  <a href="../services/">サービス一覧</a>
+  <a href="../services/#contact">お問い合わせ</a>
+</nav>
+
+<div class="hero">
+  <div class="badge">INTERACTIVE DEMO</div>
+  <h1>納品物を、<span>先に触って</span>ください。</h1>
+  <p>画像や説明文だけでは伝わらない「使い心地」をそのまま体験できます。<br>どちらもブラウザだけで動きます。スマホからでもどうぞ。</p>
+</div>
+
+<div class="cards">
+  <div class="card">
+    <div class="ico">📊</div>
+    <span class="tag">実際に操作できます</span>
+    <h2>BIダッシュボード</h2>
+    <p>毎月のExcel集計を全自動化。教室・期間の切り替え、前月比の自動計算、データ自動反映までこのデモで体験できます。</p>
+    <ul>
+      <li>Excel／スプレッドシート自動取込（GAS）</li>
+      <li>グラフ・KPIが自動更新</li>
+      <li>スマホ対応・URL共有だけで閲覧OK</li>
+    </ul>
+    <a class="go" href="bi_dashboard.html">▶ ダッシュボードを触ってみる</a>
+  </div>
+
+  <div class="card">
+    <div class="ico">💬</div>
+    <span class="tag">実際に会話できます</span>
+    <h2>AIチャットボット</h2>
+    <p>お店の「よくある質問」に24時間自動回答。スクール・美容室・ネットショップの3業種を切り替えて体験できます。</p>
+    <ul>
+      <li>QAはスプレッドシート管理（自分で更新可能）</li>
+      <li>Webサイト埋め込み・LINE対応</li>
+      <li>回答外の質問はスタッフへ自動引き継ぎ</li>
+    </ul>
+    <a class="go" href="chatbot.html">▶ ボットと話してみる</a>
+  </div>
+</div>
+
+<div class="about">
+  <div class="box">
+    <div class="txt">
+      <b>Fukumaru_40｜GAS × AI で業務自動化</b>
+      <p>3,000件超・複数部門にまたがる大規模データのBI化、Excel→スプレッドシート自動取込、毎朝の自動データ反映などの構築実績があります。「ITに詳しくないけど自動化したい」という方こそ、丁寧にサポートします。</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">3,000+</div><div class="l">処理データ件数</div></div>
+      <div class="stat"><div class="n">24h</div><div class="l">自動対応</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">体験デモ公開中</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="actions">
+    <a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd_Ki3tBT9Z_OOSIhmURur8VmkFWVl4bQ4_9GsXnbAvwLc6aA/viewform?usp=header" target="_blank" rel="noopener">無料で相談する（フォーム）</a>
+    <a class="light" href="../services/#packages">料金・サービス詳細を見る</a>
+  </div>
+</div>
+
+<div class="foot">※ 各デモのデータ・店舗情報はすべて架空のサンプルです。｜<a href="https://x.com/FUKUMARU_40" target="_blank" rel="noopener">X のDMでも相談できます</a></div>
+
+</body>
+</html>
