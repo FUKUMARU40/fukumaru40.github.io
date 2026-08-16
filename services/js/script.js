@@ -36,7 +36,7 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const targets = document.querySelectorAll(
-    ".intro-grid, .section-head, .service-card, .package-card, .package-cta, .audience-card, .work-feature, .work-gallery, .split-section, .process-list li, .faq-item, .profile-grid, .contact-inner"
+    ".two-column-heading, .section-heading, .service-card, .work-card, .package-card, .process-grid li, .profile-grid, .faq-layout, .contact-inner"
   );
 
   targets.forEach((target) => target.classList.add("reveal"));
